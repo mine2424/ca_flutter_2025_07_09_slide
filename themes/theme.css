@@ -438,7 +438,8 @@ section.section h2 {
   font-weight: 400;
 }
 
-/* Footer */
+/* Footer - removed to reduce visual clutter */
+/*
 section::after {
   content: '';
   position: absolute;
@@ -448,16 +449,18 @@ section::after {
   height: 1px;
   background-color: var(--border-color);
 }
+*/
 
 /* Page numbers */
 section[data-marpit-pagination]::after {
   content: attr(data-marpit-pagination);
   position: absolute;
-  bottom: 15px;
-  right: 60px;
-  font-size: 16px;
-  color: var(--text-tertiary);
-  font-weight: 500;
+  bottom: 8px;
+  right: 20px;
+  font-size: 12px;
+  color: #D1D5DB;
+  font-weight: 400;
+  opacity: 0.5;
 }
 
 /* Header (for repeated content) */
