@@ -1,0 +1,34 @@
+{
+  "name": "ca-flutter-2025-slides",
+  "version": "1.0.0",
+  "description": "CA Flutter 2025 presentation slides using Marp",
+  "private": true,
+  "scripts": {
+    "dev": "marp --watch --server ./input",
+    "build": "marp ./input/*.md --output-directory ./output",
+    "build:pdf": "marp ./input/*.md --pdf --output-directory ./output",
+    "build:all": "npm run build && npm run build:pdf",
+    "preview": "marp --preview ./input/*.md",
+    "clean": "rm -rf ./output/*",
+    "template": "cp YYYYMMDD_template.md ./input/$(date +%Y%m%d)_draft.md",
+    "validate": "node scripts/validate-slides.js"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^3.2.0"
+  },
+  "marp": {
+    "themeSet": "./themes",
+    "engine": "@marp-team/marp-core",
+    "html": true,
+    "math": "katex"
+  },
+  "keywords": [
+    "marp",
+    "presentation",
+    "slides",
+    "flutter",
+    "ca"
+  ],
+  "author": "",
+  "license": "MIT"
+}

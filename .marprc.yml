@@ -1,0 +1,39 @@
+# Marp CLI Configuration
+# https://github.com/marp-team/marp-cli
+
+# Allow using local file references in markdown
+allowLocalFiles: true
+
+# Theme configuration
+theme: ./themes/theme.css
+
+# Engine options
+options:
+  # Markdown-it options
+  markdown:
+    # Convert line breaks to <br> tags
+    breaks: false
+    # Enable typographer for better typography
+    typographer: true
+  
+  # HTML sanitization settings
+  html: true
+  
+  # Math rendering
+  math: katex
+
+# PDF export options
+pdf: true
+pdfNotes: true
+pdfOutlines: true
+
+# Output settings
+jpeg: true
+png: true
+
+# Watch mode settings
+watch: true
+
+# Server settings for preview
+server: true
+preview: true

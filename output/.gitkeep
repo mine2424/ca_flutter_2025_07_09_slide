@@ -1,0 +1,8 @@
+# Output Directory
+
+This directory contains generated slides in various formats:
+- HTML files
+- PDF files
+- Image files (PNG/JPEG)
+
+All files in this directory are generated and should not be edited directly.
