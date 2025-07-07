@@ -31,7 +31,7 @@
   
   /* Borders */--border-radius:8px;--border-radius-lg:12px;--border-color:#E5E7EB}
 
-/* Section styles */div#\:\$p>svg>foreignObject>section{width:1280px;height:720px;font-family:var(--font-family-main);background-color:var(--bg-primary);color:var(--text-primary);padding:30px 40px;display:flex;flex-direction:column;justify-content:flex-start;font-size:24px;line-height:1.4}div#\:\$p>svg>foreignObject>section{--marpit-root-font-size:24px}
+/* Section styles */div#\:\$p>svg>foreignObject>section{width:1280px;height:720px;font-family:var(--font-family-main);background-color:var(--bg-primary);color:var(--text-primary);padding:30px 40px;display:flex;flex-direction:column;justify-content:flex-start;font-size:24px;line-height:1.4;overflow:hidden;position:relative;box-sizing:border-box}div#\:\$p>svg>foreignObject>section{--marpit-root-font-size:24px}
 
 /* Headers */div#\:\$p>svg>foreignObject>section :is(h1,marp-h1){color:var(--primary-color);font-size:40px;font-weight:700;margin-bottom:var(--spacing-md);border-bottom:3px solid var(--primary-color);padding-bottom:var(--spacing-xs);line-height:1.1}div#\:\$p>svg>foreignObject>section :is(h2,marp-h2){color:var(--text-primary);font-size:30px;font-weight:600;margin-top:var(--spacing-md);margin-bottom:var(--spacing-sm);line-height:1.2}div#\:\$p>svg>foreignObject>section :is(h3,marp-h3){color:var(--text-primary);font-size:24px;font-weight:500;margin-top:var(--spacing-sm);margin-bottom:var(--spacing-xs);line-height:1.3}
 
@@ -39,9 +39,9 @@
 
 /* Lists */div#\:\$p>svg>foreignObject>section ol,div#\:\$p>svg>foreignObject>section ul{margin:var(--spacing-md) 0;padding-left:var(--spacing-xl)}div#\:\$p>svg>foreignObject>section li{margin-bottom:var(--spacing-sm);line-height:1.8}div#\:\$p>svg>foreignObject>section li::marker{color:var(--primary-color);font-weight:bold}
 
-/* Code blocks */div#\:\$p>svg>foreignObject>section :is(pre,marp-pre){background-color:var(--bg-dark);color:var(--text-inverse);padding:var(--spacing-lg);border-radius:var(--border-radius);font-family:var(--font-family-code);font-size:18px;line-height:1.6;overflow-x:auto;overflow-y:auto;margin:var(--spacing-md) 0;min-height:auto;max-height:60vh}div#\:\$p>svg>foreignObject>section code{background-color:var(--bg-tertiary);color:var(--primary-color);padding:2px 4px;border-radius:4px;font-family:var(--font-family-code);font-size:0.9em;line-height:1.4;display:inline-block}div#\:\$p>svg>foreignObject>section :is(pre,marp-pre) code{background-color:transparent;color:inherit;padding:0}
+/* Code blocks */div#\:\$p>svg>foreignObject>section :is(pre,marp-pre){background-color:var(--bg-dark);color:var(--text-inverse);padding:var(--spacing-md);border-radius:var(--border-radius);font-family:var(--font-family-code);font-size:16px;line-height:1.5;overflow-x:auto;overflow-y:auto;margin:var(--spacing-md) 0;min-height:auto;max-height:400px}div#\:\$p>svg>foreignObject>section code{background-color:var(--bg-tertiary);color:var(--primary-color);padding:2px 6px;border-radius:4px;font-family:var(--font-family-code);font-size:12px;line-height:1.4;display:inline-block}div#\:\$p>svg>foreignObject>section :is(pre,marp-pre) code{background-color:transparent;color:inherit;padding:0}
 
-/* Tables */div#\:\$p>svg>foreignObject>section table{width:100%;border-collapse:collapse;margin:var(--spacing-lg) 0;font-size:24px}div#\:\$p>svg>foreignObject>section th{background-color:var(--primary-color);color:var(--text-inverse);padding:var(--spacing-md);text-align:left;font-weight:600}div#\:\$p>svg>foreignObject>section td{padding:var(--spacing-md);border-bottom:1px solid var(--border-color)}div#\:\$p>svg>foreignObject>section tr:nth-child(2n){background-color:var(--bg-secondary)}
+/* Tables */div#\:\$p>svg>foreignObject>section table{width:100%;border-collapse:collapse;margin:var(--spacing-lg) 0;font-size:20px;max-width:100%;table-layout:fixed}div#\:\$p>svg>foreignObject>section th{background-color:var(--primary-color);color:var(--text-inverse);padding:var(--spacing-md);text-align:left;font-weight:600}div#\:\$p>svg>foreignObject>section td{padding:var(--spacing-md);border-bottom:1px solid var(--border-color)}div#\:\$p>svg>foreignObject>section tr:nth-child(2n){background-color:var(--bg-secondary)}
 
 /* Blockquotes */div#\:\$p>svg>foreignObject>section blockquote{border-left:4px solid var(--primary-color);padding-left:var(--spacing-lg);margin:var(--spacing-lg) 0;color:var(--text-secondary);font-style:italic}
 
@@ -49,21 +49,25 @@
 
 /* Custom components */
 
-/* Metric cards */div#\:\$p>svg>foreignObject>section .metric-card{background-color:var(--bg-secondary);border:2px solid var(--border-color);border-radius:var(--border-radius-lg);padding:var(--spacing-xl);text-align:center;transition:all 0.3s ease}div#\:\$p>svg>foreignObject>section .metric-card:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(0,0,0,0.1);border-color:var(--primary-color)}div#\:\$p>svg>foreignObject>section .metric-number{font-size:48px;font-weight:900;color:var(--primary-color);line-height:1;margin-bottom:var(--spacing-md)}div#\:\$p>svg>foreignObject>section section.metric-number{--marpit-root-font-size:48px}div#\:\$p>svg>foreignObject>section .metric-number small{font-size:24px;font-weight:500;color:var(--text-secondary);margin-left:var(--spacing-xs)}div#\:\$p>svg>foreignObject>section .metric-card p{font-size:20px;color:var(--text-secondary);margin:0}
+/* Metric cards */div#\:\$p>svg>foreignObject>section .metric-card{background-color:var(--bg-secondary);border:2px solid var(--border-color);border-radius:var(--border-radius-lg);padding:var(--spacing-lg) var(--spacing-md);text-align:center;transition:all 0.3s ease}div#\:\$p>svg>foreignObject>section .metric-card:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(0,0,0,0.1);border-color:var(--primary-color)}div#\:\$p>svg>foreignObject>section .metric-number{font-size:36px;font-weight:900;color:var(--primary-color);line-height:1;margin-bottom:var(--spacing-sm)}div#\:\$p>svg>foreignObject>section section.metric-number{--marpit-root-font-size:36px}div#\:\$p>svg>foreignObject>section .metric-number small{font-size:24px;font-weight:500;color:var(--text-secondary);margin-left:var(--spacing-xs)}div#\:\$p>svg>foreignObject>section .metric-card p{font-size:18px;color:var(--text-secondary);margin:0}
 
-/* Column layouts */div#\:\$p>svg>foreignObject>section .columns-2{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--spacing-xl);margin:var(--spacing-lg) 0}div#\:\$p>svg>foreignObject>section .columns-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-lg);margin:var(--spacing-lg) 0}
+/* Column layouts */div#\:\$p>svg>foreignObject>section .columns-2{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--spacing-xl);margin:var(--spacing-lg) 0;max-height:calc(100% - 100px);overflow:hidden}div#\:\$p>svg>foreignObject>section .columns-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-md);margin:var(--spacing-md) 0;max-height:calc(100% - 100px)}
 
-/* Strategy grid */div#\:\$p>svg>foreignObject>section .strategy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--spacing-xl);margin:var(--spacing-xl) 0}div#\:\$p>svg>foreignObject>section .strategy-section{background-color:var(--bg-tertiary);border-radius:var(--border-radius-lg);padding:var(--spacing-xl);border:1px solid var(--border-color);transition:all 0.3s ease}div#\:\$p>svg>foreignObject>section .strategy-section:hover{background-color:var(--bg-secondary);box-shadow:0 4px 12px rgba(0,0,0,0.08)}div#\:\$p>svg>foreignObject>section .strategy-section :is(h3,marp-h3){color:var(--primary-color);margin-top:0;margin-bottom:var(--spacing-md);font-size:24px}div#\:\$p>svg>foreignObject>section .strategy-section p{font-size:20px;color:var(--text-secondary);margin-bottom:var(--spacing-sm)}
+/* Strategy grid */div#\:\$p>svg>foreignObject>section .strategy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--spacing-md);margin:var(--spacing-md) 0;max-height:calc(100% - 120px);overflow:hidden}div#\:\$p>svg>foreignObject>section .strategy-section{background-color:var(--bg-tertiary);border-radius:var(--border-radius-lg);padding:var(--spacing-md) var(--spacing-lg);border:1px solid var(--border-color);transition:all 0.3s ease}div#\:\$p>svg>foreignObject>section .strategy-section:hover{background-color:var(--bg-secondary);box-shadow:0 4px 12px rgba(0,0,0,0.08)}div#\:\$p>svg>foreignObject>section .strategy-section :is(h3,marp-h3){color:var(--primary-color);margin-top:0;margin-bottom:var(--spacing-xs);font-size:20px}div#\:\$p>svg>foreignObject>section .strategy-section p{font-size:18px;color:var(--text-secondary);margin-bottom:var(--spacing-xs);line-height:1.3}
 
 /* Badges */div#\:\$p>svg>foreignObject>section .badge{display:inline-block;padding:var(--spacing-xs) var(--spacing-md);border-radius:20px;font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:var(--spacing-sm)}div#\:\$p>svg>foreignObject>section section.badge{--marpit-root-font-size:16px}div#\:\$p>svg>foreignObject>section .badge.primary{background-color:var(--primary-color);color:var(--text-inverse)}div#\:\$p>svg>foreignObject>section .badge.success{background-color:var(--success-color);color:var(--text-inverse)}div#\:\$p>svg>foreignObject>section .badge.warning{background-color:var(--warning-color);color:var(--text-inverse)}div#\:\$p>svg>foreignObject>section .badge.error{background-color:var(--error-color);color:var(--text-inverse)}div#\:\$p>svg>foreignObject>section .badge.danger{background-color:var(--primary-color);color:var(--text-inverse)}
 
-/* Comparison matrix */div#\:\$p>svg>foreignObject>section .comparison-matrix{width:100%;margin:var(--spacing-xl) 0}div#\:\$p>svg>foreignObject>section .comparison-matrix table{font-size:22px}div#\:\$p>svg>foreignObject>section .comparison-matrix th{background-color:var(--bg-dark);color:var(--text-inverse);font-weight:600;text-align:center;padding:var(--spacing-md)}div#\:\$p>svg>foreignObject>section .comparison-matrix td{text-align:center;padding:var(--spacing-md);border:1px solid var(--border-color)}div#\:\$p>svg>foreignObject>section .comparison-matrix tr:first-child td{background-color:var(--bg-tertiary);font-weight:600}
+/* Comparison matrix */div#\:\$p>svg>foreignObject>section .comparison-matrix{width:100%;margin:var(--spacing-xl) 0}div#\:\$p>svg>foreignObject>section .comparison-matrix table{font-size:18px}div#\:\$p>svg>foreignObject>section .comparison-matrix th{background-color:var(--bg-dark);color:var(--text-inverse);font-weight:600;text-align:center;padding:var(--spacing-md)}div#\:\$p>svg>foreignObject>section .comparison-matrix td{text-align:center;padding:var(--spacing-md);border:1px solid var(--border-color)}div#\:\$p>svg>foreignObject>section .comparison-matrix tr:first-child td{background-color:var(--bg-tertiary);font-weight:600}
+
+/* Ensure content doesn't overflow */div#\:\$p>svg>foreignObject>section>*{flex-shrink:0}
+
+/* Prevent last element from overflowing */div#\:\$p>svg>foreignObject>section>:last-child{margin-bottom:0}
 
 /* Special slide styles */
 
 /* Title slide */div#\:\$p>svg>foreignObject>section.lead{background:linear-gradient(135deg,var(--primary-color) 0%,var(--secondary-color) 100%);color:var(--text-inverse);text-align:center;justify-content:center;padding:var(--spacing-xl);position:relative;overflow:hidden}div#\:\$p>svg>foreignObject>section.lead:before{content:'';position:absolute;top:-50%;right:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,0.1) 0%,transparent 70%);animation:pulse 4s ease-in-out infinite}@keyframes pulse{0%,to{transform:scale(1);opacity:0.3}50%{transform:scale(1.1);opacity:0.1}}div#\:\$p>svg>foreignObject>section.lead :is(h1,marp-h1){color:var(--text-inverse);font-size:64px;font-weight:900;border:none;margin-bottom:var(--spacing-xl)}div#\:\$p>svg>foreignObject>section.lead :is(h2,marp-h2){color:var(--text-inverse);font-size:32px;font-weight:400;opacity:0.9}div#\:\$p>svg>foreignObject>section.lead p{font-size:24px;opacity:0.8;margin-top:var(--spacing-2xl)}
 
-/* Section divider */div#\:\$p>svg>foreignObject>section.section{background-color:var(--bg-dark);color:var(--text-inverse);text-align:center;justify-content:center}div#\:\$p>svg>foreignObject>section.section :is(h1,marp-h1){color:var(--text-inverse);font-size:56px;border:none}div#\:\$p>svg>foreignObject>section.section :is(h2,marp-h2){color:var(--text-inverse);opacity:0.8;font-weight:400}
+/* Section divider */div#\:\$p>svg>foreignObject>section.section{background-color:var(--bg-dark);color:var(--text-inverse);text-align:center;justify-content:center;overflow:hidden}div#\:\$p>svg>foreignObject>section.section :is(h1,marp-h1){color:var(--text-inverse);font-size:56px;border:none}div#\:\$p>svg>foreignObject>section.section :is(h2,marp-h2){color:var(--text-inverse);opacity:0.8;font-weight:400}
 
 /* Footer */div#\:\$p>svg>foreignObject>section:after{
   /* content: ''; */position:absolute;bottom:15px;left:60px;right:60px;height:1px;background-color:var(--border-color)}
@@ -82,13 +86,13 @@
 
 /* Print styles */@media print{div#\:\$p>svg>foreignObject>section{page-break-after:always;page-break-inside:avoid}div#\:\$p>svg>foreignObject>section:after{display:none}}
 
-/* Utility classes */div#\:\$p>svg>foreignObject>section .text-center{text-align:center}div#\:\$p>svg>foreignObject>section .text-right{text-align:right}div#\:\$p>svg>foreignObject>section .text-left{text-align:left}div#\:\$p>svg>foreignObject>section .mt-0{margin-top:0}div#\:\$p>svg>foreignObject>section .mt-1{margin-top:var(--spacing-sm)}div#\:\$p>svg>foreignObject>section .mt-2{margin-top:var(--spacing-md)}div#\:\$p>svg>foreignObject>section .mt-3{margin-top:var(--spacing-lg)}div#\:\$p>svg>foreignObject>section .mt-4{margin-top:var(--spacing-xl)}div#\:\$p>svg>foreignObject>section .mb-0{margin-bottom:0}div#\:\$p>svg>foreignObject>section .mb-1{margin-bottom:var(--spacing-sm)}div#\:\$p>svg>foreignObject>section .mb-2{margin-bottom:var(--spacing-md)}div#\:\$p>svg>foreignObject>section .mb-3{margin-bottom:var(--spacing-lg)}div#\:\$p>svg>foreignObject>section .mb-4{margin-bottom:var(--spacing-xl)}div#\:\$p>svg>foreignObject>section .text-primary{color:var(--primary-color)}div#\:\$p>svg>foreignObject>section .text-secondary{color:var(--text-secondary)}div#\:\$p>svg>foreignObject>section .text-success{color:var(--success-color)}div#\:\$p>svg>foreignObject>section .text-warning{color:var(--warning-color)}div#\:\$p>svg>foreignObject>section .text-error{color:var(--error-color)}div#\:\$p>svg>foreignObject>section .bg-light{background-color:var(--bg-secondary)}div#\:\$p>svg>foreignObject>section .bg-dark{background-color:var(--bg-dark)}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]{columns:initial!important;display:block!important;padding:0!important}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]:after,div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]:before,div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=content]:after,div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=content]:before{display:none!important}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]{all:initial;display:flex;flex-direction:row;height:100%;overflow:hidden;width:100%}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container][data-marpit-advanced-background-direction=vertical]{flex-direction:column}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background][data-marpit-advanced-background-split]>div[data-marpit-advanced-background-container]{width:var(--marpit-advanced-background-split,50%)}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background][data-marpit-advanced-background-split=right]>div[data-marpit-advanced-background-container]{margin-left:calc(100% - var(--marpit-advanced-background-split, 50%))}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]>figure{all:initial;background-position:center;background-repeat:no-repeat;background-size:cover;flex:auto;margin:0}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]>figure>figcaption{position:absolute;border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;white-space:nowrap;width:1px}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=content],div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=pseudo]{background:transparent!important}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=pseudo],div#\:\$p>svg[data-marpit-svg]>foreignObject[data-marpit-advanced-background=pseudo]{pointer-events:none!important}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background-split]{width:100%;height:100%}</style></head><body><div class="bespoke-marp-osc"><button data-bespoke-marp-osc="prev" tabindex="-1" title="Previous slide">Previous slide</button><span data-bespoke-marp-osc="page"></span><button data-bespoke-marp-osc="next" tabindex="-1" title="Next slide">Next slide</button><button data-bespoke-marp-osc="fullscreen" tabindex="-1" title="Toggle fullscreen (f)">Toggle fullscreen</button><button data-bespoke-marp-osc="presenter" tabindex="-1" title="Open presenter view (p)">Open presenter view</button></div><div id=":$p"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="1" data-paginate="true" data-class="lead" data-theme="ca-business" lang="en-US" class="lead" data-marpit-pagination="1" style="--paginate:true;--class:lead;--theme:ca-business;" data-marpit-pagination-total="35">
+/* Utility classes */div#\:\$p>svg>foreignObject>section .text-center{text-align:center}div#\:\$p>svg>foreignObject>section .text-right{text-align:right}div#\:\$p>svg>foreignObject>section .text-left{text-align:left}div#\:\$p>svg>foreignObject>section .mt-0{margin-top:0}div#\:\$p>svg>foreignObject>section .mt-1{margin-top:var(--spacing-sm)}div#\:\$p>svg>foreignObject>section .mt-2{margin-top:var(--spacing-md)}div#\:\$p>svg>foreignObject>section .mt-3{margin-top:var(--spacing-lg)}div#\:\$p>svg>foreignObject>section .mt-4{margin-top:var(--spacing-xl)}div#\:\$p>svg>foreignObject>section .mb-0{margin-bottom:0}div#\:\$p>svg>foreignObject>section .mb-1{margin-bottom:var(--spacing-sm)}div#\:\$p>svg>foreignObject>section .mb-2{margin-bottom:var(--spacing-md)}div#\:\$p>svg>foreignObject>section .mb-3{margin-bottom:var(--spacing-lg)}div#\:\$p>svg>foreignObject>section .mb-4{margin-bottom:var(--spacing-xl)}div#\:\$p>svg>foreignObject>section .text-primary{color:var(--primary-color)}div#\:\$p>svg>foreignObject>section .text-secondary{color:var(--text-secondary)}div#\:\$p>svg>foreignObject>section .text-success{color:var(--success-color)}div#\:\$p>svg>foreignObject>section .text-warning{color:var(--warning-color)}div#\:\$p>svg>foreignObject>section .text-error{color:var(--error-color)}div#\:\$p>svg>foreignObject>section .bg-light{background-color:var(--bg-secondary)}div#\:\$p>svg>foreignObject>section .bg-dark{background-color:var(--bg-dark)}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]{columns:initial!important;display:block!important;padding:0!important}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]:after,div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]:before,div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=content]:after,div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=content]:before{display:none!important}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]{all:initial;display:flex;flex-direction:row;height:100%;overflow:hidden;width:100%}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container][data-marpit-advanced-background-direction=vertical]{flex-direction:column}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background][data-marpit-advanced-background-split]>div[data-marpit-advanced-background-container]{width:var(--marpit-advanced-background-split,50%)}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background][data-marpit-advanced-background-split=right]>div[data-marpit-advanced-background-container]{margin-left:calc(100% - var(--marpit-advanced-background-split, 50%))}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]>figure{all:initial;background-position:center;background-repeat:no-repeat;background-size:cover;flex:auto;margin:0}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]>figure>figcaption{position:absolute;border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;white-space:nowrap;width:1px}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=content],div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=pseudo]{background:transparent!important}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=pseudo],div#\:\$p>svg[data-marpit-svg]>foreignObject[data-marpit-advanced-background=pseudo]{pointer-events:none!important}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background-split]{width:100%;height:100%}</style></head><body><div class="bespoke-marp-osc"><button data-bespoke-marp-osc="prev" tabindex="-1" title="Previous slide">Previous slide</button><span data-bespoke-marp-osc="page"></span><button data-bespoke-marp-osc="next" tabindex="-1" title="Next slide">Next slide</button><button data-bespoke-marp-osc="fullscreen" tabindex="-1" title="Toggle fullscreen (f)">Toggle fullscreen</button><button data-bespoke-marp-osc="presenter" tabindex="-1" title="Open presenter view (p)">Open presenter view</button></div><div id=":$p"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="1" data-paginate="true" data-class="lead" data-theme="ca-business" lang="en-US" class="lead" data-marpit-pagination="1" style="--paginate:true;--class:lead;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="android-16kb%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%B5%E3%82%A4%E3%82%BA%E5%AF%BE%E5%BF%9C%E3%82%92">Android 16KBページサイズ対応を</h1>
 <h1 id="%E3%81%AF%E3%81%98%E3%82%81%E3%81%8B%E3%82%89%E3%81%A6%E3%81%84%E3%81%AD%E3%81%84%E3%81%AB">はじめからていねいに</h1>
 <h3 id="flutter-%C3%97-android-15">Flutter × Android 15</h3>
 <p>2025年7月9日</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="2" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="2" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B">自己紹介</h1>
 <div class="columns-2">
 <div>
@@ -112,7 +116,7 @@
 </div>
 </div>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="3" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="3" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="3" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="3" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E6%9C%AC%E6%97%A5%E3%81%AE%E5%86%85%E5%AE%B9">本日の内容</h1>
 <h2 id="2025%E5%B9%B411%E6%9C%88%E4%BB%A5%E9%99%8D%E5%BF%85%E9%A0%88%E5%AF%BE%E5%BF%9C%E3%81%A8%E3%81%AA%E3%82%8B16kb%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%B5%E3%82%A4%E3%82%BA">2025年11月以降、必須対応となる16KBページサイズ</h2>
 <ol>
@@ -122,13 +126,13 @@
 <li><strong>デモで確認</strong> - build.gradleとネイティブライブラリの設定</li>
 </ol>
 <h3 id="%E4%BB%8A%E6%97%A5%E3%81%AE%E3%82%B4%E3%83%BC%E3%83%AB">今日のゴール</h3>
-<p><strong>Flutterエンジニアが明日から16KB対応を始められる状態に！</strong></p>
+<p><strong>明日から16KB対応を始められる状態に！</strong></p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4" data-paginate="true" data-class="section" data-theme="ca-business" lang="en-US" class="section" data-marpit-pagination="4" style="--paginate:true;--class:section;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4" data-paginate="true" data-class="section" data-theme="ca-business" lang="en-US" class="section" data-marpit-pagination="4" style="--paginate:true;--class:section;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%F0%9F%93%B1-%E3%81%BE%E3%81%9A%E3%81%AF%E5%9F%BA%E6%9C%AC%E3%81%8B%E3%82%89"><img class="emoji" draggable="false" alt="📱" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f4f1.svg" data-marp-twemoji=""/> まずは基本から</h1>
 <h2 id="16kb%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%B5%E3%82%A4%E3%82%BA%E3%81%A3%E3%81%A6%E4%BD%95">16KBページサイズって何？</h2>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="5" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="5" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E3%81%9D%E3%82%82%E3%81%9D%E3%82%82%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%B5%E3%82%A4%E3%82%BA%E3%81%A8%E3%81%AF">そもそもページサイズとは</h1>
 <div class="columns-2">
 <div>
@@ -152,7 +156,7 @@
 </div>
 </div>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="6" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="6" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="4kb-%E2%86%92-16kb%E3%81%A7%E4%BD%95%E3%81%8C%E5%A4%89%E3%82%8F%E3%82%8B">4KB → 16KBで何が変わる？</h1>
 <div class="strategy-grid">
 <div class="strategy-section">
@@ -177,7 +181,7 @@
 </div>
 </div>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="7" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="7" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="google-play%E3%81%AE%E6%96%B0%E8%A6%81%E4%BB%B6">Google Playの新要件</h1>
 <div class="columns-2">
 <div class="metric-card">
@@ -195,11 +199,11 @@
 <img class="emoji" draggable="false" alt="❌" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" data-marp-twemoji=""/> <strong>未対応</strong>: Google Play審査に<strong>通らない</strong></p>
 <p><strong>注意</strong>: 2025年9月から段階的適用の可能性もあり</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-paginate="true" data-class="section" data-theme="ca-business" lang="en-US" class="section" data-marpit-pagination="8" style="--paginate:true;--class:section;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-paginate="true" data-class="section" data-theme="ca-business" lang="en-US" class="section" data-marpit-pagination="8" style="--paginate:true;--class:section;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%F0%9F%93%8A-%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%8A%B9%E6%9E%9C%E3%81%AF"><img class="emoji" draggable="false" alt="📊" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f4ca.svg" data-marp-twemoji=""/> 実際の効果は？</h1>
 <h2 id="%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E6%B8%AC%E5%AE%9A%E7%B5%90%E6%9E%9C">パフォーマンス測定結果</h2>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="9" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="9" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="9" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="9" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="google%E3%81%AE%E5%85%AC%E5%BC%8F%E3%83%86%E3%82%B9%E3%83%88%E7%B5%90%E6%9E%9C">Googleの公式テスト結果</h1>
 <div class="strategy-grid">
 <div class="strategy-section">
@@ -223,9 +227,10 @@
 <span class="badge warning">全体改善</span>
 </div>
 </div>
-<p><strong>出典</strong>: Android Developers Blog &quot;Improving Android memory efficiency - 16 KB page size&quot; (2024)</p>
+<p><strong>出典</strong>: Android Developers Blog<br />
+&quot;Improving Android memory efficiency - 16 KB page size&quot; (2024)</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="10" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="10" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="flutter%E5%AE%9F%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A7%E3%81%AE%E6%B8%AC%E5%AE%9A">Flutter実アプリでの測定</h1>
 <div class="columns-2">
 <div class="metric-card">
@@ -251,11 +256,11 @@
 <li>システム全体の安定性向上</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-paginate="true" data-class="section" data-theme="ca-business" lang="en-US" class="section" data-marpit-pagination="11" style="--paginate:true;--class:section;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-paginate="true" data-class="section" data-theme="ca-business" lang="en-US" class="section" data-marpit-pagination="11" style="--paginate:true;--class:section;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%F0%9F%9B%A0%EF%B8%8F-flutter%E3%82%A2%E3%83%97%E3%83%AA%E3%81%B8%E3%81%AE%E5%BD%B1%E9%9F%BF"><img class="emoji" draggable="false" alt="🛠️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f6e0.svg" data-marp-twemoji=""/> Flutterアプリへの影響</h1>
 <h2 id="%E4%BD%95%E3%81%8C%E5%95%8F%E9%A1%8C%E3%81%AB%E3%81%AA%E3%82%8B%E3%81%AE">何が問題になるの？</h2>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="12" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="12" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E3%82%A8%E3%83%A9%E3%83%BC">よくあるエラー</h1>
 <h2 id="%E3%81%93%E3%82%93%E3%81%AA%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E9%81%AD%E9%81%87%E3%81%97%E3%81%BE%E3%81%99">こんなエラーに遭遇します</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code>Failure [INSTALL_FAILED_INVALID_APK: 
@@ -269,7 +274,7 @@ Failed to extract native libraries, res=-2]
 <li>16KB環境では動作しない！</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="13" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="13" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E3%83%8D%E3%82%A4%E3%83%86%E3%82%A3%E3%83%96%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AAso%E3%81%A8%E3%81%AF">ネイティブライブラリ（.so）とは？</h1>
 <h2 id="flutter%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E6%A7%8B%E6%88%90%E8%A6%81%E7%B4%A0">Flutterアプリの構成要素</h2>
 <div class="columns-2">
@@ -297,7 +302,7 @@ Failed to extract native libraries, res=-2]
 <li><code>lib〇〇.so</code> - 各種プラグイン</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="14" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="14" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E5%BD%B1%E9%9F%BF%E3%82%92%E5%8F%97%E3%81%91%E3%82%8B%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8">影響を受けるパッケージ</h1>
 <div class="strategy-grid">
 <div class="strategy-section">
@@ -309,35 +314,36 @@ Failed to extract native libraries, res=-2]
 <div class="strategy-section">
 <h3>⚠️ local_notifications</h3>
 <p>通知機能</p>
-<p>設定変更で対応可能</p>
+<p>Desugar制約（Java 11）</p>
 <span class="badge warning">要設定</span>
 </div>
 <div class="strategy-section">
 <h3>✅ datadog_flutter</h3>
 <p>監視・分析</p>
-<p>v2.6.0+で対応済み</p>
+<p>v2.11.0+で対応済み</p>
 <span class="badge success">対応済</span>
 </div>
 <div class="strategy-section">
-<h3>🔍 その他</h3>
-<p>C/C++を含むプラグイン</p>
-<p>個別確認が必要</p>
-<span class="badge primary">要確認</span>
+<h3>⚠️ Gradle警告</h3>
+<p>memory_info, update_available</p>
+<p>jcenter使用の警告</p>
+<span class="badge warning">注意</span>
 </div>
 </div>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-paginate="true" data-class="section" data-theme="ca-business" lang="en-US" class="section" data-marpit-pagination="15" style="--paginate:true;--class:section;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-paginate="true" data-class="section" data-theme="ca-business" lang="en-US" class="section" data-marpit-pagination="15" style="--paginate:true;--class:section;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%F0%9F%94%8D-%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95"><img class="emoji" draggable="false" alt="🔍" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f50d.svg" data-marp-twemoji=""/> 対応方法</h1>
 <h2 id="%E3%82%B9%E3%83%86%E3%83%83%E3%83%97%E3%83%BB%E3%83%90%E3%82%A4%E3%83%BB%E3%82%B9%E3%83%86%E3%83%83%E3%83%97">ステップ・バイ・ステップ</h2>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="16" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="16" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="step1-%E7%8F%BE%E7%8A%B6%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B">STEP1: 現状を確認する</h1>
 <h2 id="%E3%81%BE%E3%81%9A%E3%81%AFapk%E3%82%92%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF">まずはAPKをチェック</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash"><span class="hljs-comment"># 1. APKをビルド</span>
 flutter build apk --release
 
 <span class="hljs-comment"># 2. Googleのチェックスクリプトをダウンロード</span>
-curl -O https://android.googlesource.com/.../check_elf_alignment.sh
+curl -O https://android.googlesource.com/\
+  .../check_elf_alignment.sh
 
 <span class="hljs-comment"># 3. チェック実行</span>
 ./check_elf_alignment.sh build/app/outputs/flutter-apk/app-release.apk
@@ -348,46 +354,16 @@ curl -O https://android.googlesource.com/.../check_elf_alignment.sh
 ./libplugin.so: UNALIGNED (2^12) ✗   # 要修正！
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="17" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="17" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="step2-%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%82%92%E6%9B%B4%E6%96%B0">STEP2: 開発環境を更新</h1>
 <h2 id="%E5%BF%85%E8%A6%81%E3%81%AA%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3">必要なバージョン</h2>
 <div class="comparison-matrix">
-<table>
-<thead>
-<tr>
-<th>ツール</th>
-<th>現在の推奨</th>
-<th>16KB対応版</th>
-<th>確認方法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Flutter</td>
-<td>3.22+</td>
-<td><strong>3.24.1+</strong></td>
-<td><code>flutter --version</code></td>
-</tr>
-<tr>
-<td>NDK</td>
-<td>r25</td>
-<td><strong>r27+</strong></td>
-<td><code>$ANDROID_NDK_HOME/ndk-build --version</code></td>
-</tr>
-<tr>
-<td>AGP</td>
-<td>8.0</td>
-<td><strong>8.6.0+</strong></td>
-<td><code>android/build.gradle</code></td>
-</tr>
-<tr>
-<td>Gradle</td>
-<td>8.0</td>
-<td><strong>8.3+</strong></td>
-<td><code>gradle --version</code></td>
-</tr>
-</tbody>
-</table>
+<p>| ツール | Android 14 | Android 15 | 確認方法 |<br />
+| SDK | 34 | <strong>35</strong> | <code>compileSdk</code> |<br />
+| NDK | r25.1 | <strong>r27.2 → r28.1</strong> | <code>ndkVersion</code> |<br />
+| AGP | 8.3.2 | <strong>8.10.0</strong> | <code>build.gradle</code> |<br />
+| Gradle | 8.9 | <strong>8.11.1</strong> | <code>gradle-wrapper</code> |<br />
+| core-ktx | 1.13.1 | <strong>1.16.0</strong> | <code>build.gradle</code> |</p>
 </div>
 <h2 id="%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E6%96%B9%E6%B3%95">アップデート方法</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash"><span class="hljs-comment"># Flutterを最新に</span>
@@ -397,11 +373,11 @@ flutter upgrade
 Android Studio &gt; Settings &gt; SDK Tools
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" data-paginate="true" data-class="section" data-theme="ca-business" lang="en-US" class="section" data-marpit-pagination="18" style="--paginate:true;--class:section;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" data-paginate="true" data-class="section" data-theme="ca-business" lang="en-US" class="section" data-marpit-pagination="18" style="--paginate:true;--class:section;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%F0%9F%93%9D-buildgradle%E3%81%AE%E8%A8%AD%E5%AE%9A"><img class="emoji" draggable="false" alt="📝" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f4dd.svg" data-marp-twemoji=""/> build.gradleの設定</h1>
 <h2 id="flutter%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E5%BF%85%E8%A6%8B">Flutterエンジニア必見！</h2>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="19" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="19" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="19" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="19" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="buildgradle%E3%81%A8%E3%81%AF">build.gradleとは？</h1>
 <h2 id="android%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E3%83%93%E3%83%AB%E3%83%89%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB">Androidアプリのビルド設定ファイル</h2>
 <div class="columns-2">
@@ -424,7 +400,7 @@ Android Studio &gt; Settings &gt; SDK Tools
 </div>
 </div>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="20" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="20" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="20" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="20" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E5%BF%85%E9%A0%88%E3%81%AE%E4%BF%AE%E6%AD%A3%E5%86%85%E5%AE%B9">必須の修正内容</h1>
 <h2 id="androidappbuildgradle">android/app/build.gradle</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-gradle">android {
@@ -439,19 +415,27 @@ Android Studio &gt; Settings &gt; SDK Tools
         <span class="hljs-comment">// ↓ この設定を追加！</span>
         externalNativeBuild {
             cmake {
-                arguments += [<span class="hljs-string">&quot;-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON&quot;</span>]
+                arguments += [
+                    <span class="hljs-string">&quot;-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON&quot;</span>
+                ]
             }
         }
     }
 }
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="21" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="21" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="21" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="21" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="ndk%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E6%8C%87%E5%AE%9A">NDKバージョンの指定</h1>
-<h2 id="%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AB%E3%82%88%E3%81%A3%E3%81%A6%E8%A8%AD%E5%AE%9A%E3%81%8C%E7%95%B0%E3%81%AA%E3%82%8B">バージョンによって設定が異なる</h2>
+<h2 id="%E5%AE%9F%E9%9A%9B%E3%81%AE%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%A7%E3%81%AE%E5%A4%89%E9%81%B7">実際のプロジェクトでの変遷</h2>
+<h3 id="%E6%AE%B5%E9%9A%8E%E7%9A%84%E3%81%AA%E6%9B%B4%E6%96%B0%E5%B1%A5%E6%AD%B4">段階的な更新履歴</h3>
+<ol>
+<li><strong>Android 14</strong>: NDK r25.1.8937393</li>
+<li><strong>Android 15初期</strong>: NDK r27.2.12479018（PR #4049）</li>
+<li><strong>16KB完全対応</strong>: NDK r28.1.13356709（PR #4198）</li>
+</ol>
 <h3 id="ndk-r27%E3%81%AE%E5%A0%B4%E5%90%88%E8%BF%BD%E5%8A%A0%E8%A8%AD%E5%AE%9A%E3%81%8C%E5%BF%85%E8%A6%81">NDK r27の場合（追加設定が必要）</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-gradle">android {
-    ndkVersion <span class="hljs-string">&quot;27.0.12077973&quot;</span>  <span class="hljs-comment">// 明示的に指定</span>
+    ndkVersion <span class="hljs-string">&quot;27.2.12479018&quot;</span>  <span class="hljs-comment">// PR #4049で使用</span>
     
     <span class="hljs-comment">// CMakeLists.txtがある場合</span>
     externalNativeBuild {
@@ -461,14 +445,14 @@ Android Studio &gt; Settings &gt; SDK Tools
     }
 }
 </code></pre>
-<h3 id="ndk-r28%E3%81%AE%E5%A0%B4%E5%90%88">NDK r28+の場合</h3>
+<h3 id="ndk-r28%E3%81%AE%E5%A0%B4%E5%90%88%E6%8E%A8%E5%A5%A8">NDK r28+の場合（推奨）</h3>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-gradle">android {
-    ndkVersion <span class="hljs-string">&quot;28.0.12345678&quot;</span>  <span class="hljs-comment">// r28以降なら自動対応</span>
-    <span class="hljs-comment">// 追加設定不要！</span>
+    ndkVersion <span class="hljs-string">&quot;28.1.13356709&quot;</span>  <span class="hljs-comment">// PR #4198で検証済み</span>
+    <span class="hljs-comment">// 追加設定不要！16KB自動対応</span>
 }
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="22" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="22" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="22" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="22" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82%E3%81%AE%E6%9B%B4%E6%96%B0">依存関係の更新</h1>
 <h2 id="androidxcore%E3%81%AE%E6%9B%B4%E6%96%B0%E3%81%8C%E5%BF%85%E9%A0%88">androidx.coreの更新が必須</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-gradle"><span class="hljs-keyword">dependencies</span> {
@@ -487,11 +471,11 @@ Android Studio &gt; Settings &gt; SDK Tools
 }
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="23" data-paginate="true" data-class="section" data-theme="ca-business" lang="en-US" class="section" data-marpit-pagination="23" style="--paginate:true;--class:section;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="23" data-paginate="true" data-class="section" data-theme="ca-business" lang="en-US" class="section" data-marpit-pagination="23" style="--paginate:true;--class:section;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%F0%9F%8E%AC-%E5%AE%9F%E9%9A%9B%E3%81%AB%E3%82%84%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%88%E3%81%86"><img class="emoji" draggable="false" alt="🎬" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f3ac.svg" data-marp-twemoji=""/> 実際にやってみよう</h1>
 <h2 id="%E3%83%87%E3%83%A2%E3%83%B3%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3">デモンストレーション</h2>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="24" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="24" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="24" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="24" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E3%83%87%E3%83%A2-apk%E3%81%AE%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF">デモ: APKのチェック</h1>
 <h2 id="1-%E6%97%A2%E5%AD%98apk%E3%81%AE%E7%8A%B6%E6%85%8B%E7%A2%BA%E8%AA%8D">1. 既存APKの状態確認</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash"><span class="hljs-comment"># APKをビルド</span>
@@ -508,7 +492,7 @@ librive_text.so: UNALIGNED (2^12) <img class="emoji" draggable="false" alt="❌"
 </code></pre>
 <p><strong>結果</strong>: 16KB対応が必要！</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="25" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="25" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="25" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="25" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E3%83%87%E3%83%A2-buildgradle%E4%BF%AE%E6%AD%A3">デモ: build.gradle修正</h1>
 <h2 id="2-%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BF%AE%E6%AD%A3">2. 設定ファイルの修正</h2>
 <h3 id="before">Before</h3>
@@ -530,14 +514,16 @@ librive_text.so: UNALIGNED (2^12) <img class="emoji" draggable="false" alt="❌"
         
         externalNativeBuild {
             cmake {
-                arguments += [<span class="hljs-string">&quot;-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON&quot;</span>]
+                arguments += [
+                    <span class="hljs-string">&quot;-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON&quot;</span>
+                ]
             }
         }
     }
 }
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="26" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="26" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="26" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="26" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E3%83%87%E3%83%A2-%E5%86%8D%E3%83%93%E3%83%AB%E3%83%89%E3%81%A8%E7%A2%BA%E8%AA%8D">デモ: 再ビルドと確認</h1>
 <h2 id="3-%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%93%E3%83%AB%E3%83%89%E3%81%A8%E6%A4%9C%E8%A8%BC">3. クリーンビルドと検証</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash"><span class="hljs-comment"># クリーンビルド</span>
@@ -555,11 +541,11 @@ librive_text.so: UNALIGNED (2^12) <img class="emoji" draggable="false" alt="❌"
 </code></pre>
 <p><strong>Flutter本体は対応完了！</strong></p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="27" data-paginate="true" data-class="section" data-theme="ca-business" lang="en-US" class="section" data-marpit-pagination="27" style="--paginate:true;--class:section;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="27" data-paginate="true" data-class="section" data-theme="ca-business" lang="en-US" class="section" data-marpit-pagination="27" style="--paginate:true;--class:section;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%F0%9F%90%9B-%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0"><img class="emoji" draggable="false" alt="🐛" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f41b.svg" data-marp-twemoji=""/> トラブルシューティング</h1>
 <h2 id="%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E5%95%8F%E9%A1%8C%E3%81%A8%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95">よくある問題と解決方法</h2>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="28" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="28" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="28" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="28" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E3%82%A8%E3%83%A9%E3%83%BC%E5%88%A5%E5%AF%BE%E5%87%A6%E6%B3%95">エラー別対処法</h1>
 <h2 id="1-install_failed_invalid_apk">1. INSTALL_FAILED_INVALID_APK</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash"><span class="hljs-comment"># Gradleキャッシュをクリア</span>
@@ -573,10 +559,11 @@ flutter build apk --release
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code>Dependency 'androidx.core:core-ktx:1.16.0' requires AGP 8.6.0+
 </code></pre>
 <p><strong>解決</strong>: android/gradle/wrapper/gradle-wrapper.properties</p>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-properties"><span class="hljs-attr">distributionUrl</span>=<span class="hljs-string">https://services.gradle.org/distributions/gradle-8.3-all.zip</span>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-properties"><span class="hljs-attr">distributionUrl</span>=<span class="hljs-string">https://services.gradle.org/\
+  distributions/gradle-8.3-all.zip</span>
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="29" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="29" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="29" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="29" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E5%AF%BE%E5%BF%9C%E7%8A%B6%E6%B3%81%E3%81%AE%E7%A2%BA%E8%AA%8D">プラグイン対応状況の確認</h1>
 <h2 id="%E5%AF%BE%E5%BF%9C%E5%BE%85%E3%81%A1%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%AE%E5%A0%B4%E5%90%88">対応待ちプラグインの場合</h2>
 <h3 id="1-%E4%BB%A3%E6%9B%BF%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%82%92%E6%A4%9C%E8%A8%8E">1. 代替ライブラリを検討</h3>
@@ -598,7 +585,39 @@ https://github.com/[plugin-name]/issues
       <span class="hljs-attr">ref:</span> <span class="hljs-string">16kb-support</span>  <span class="hljs-comment"># フォーク版を使用</span>
 </code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="30" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="30" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="30" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="30" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
+<h1 id="rive%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE16kb%E5%AF%BE%E5%BF%9C">Riveライブラリの16KB対応</h1>
+<h2 id="%E5%AF%BE%E5%BF%9C%E7%8A%B6%E6%B3%81%E3%81%A8%E8%A7%A3%E6%B1%BA%E7%AD%96">対応状況と解決策</h2>
+<h3 id="%E7%8F%BE%E7%8A%B62025%E5%B9%B41%E6%9C%88%E6%99%82%E7%82%B9">現状（2025年1月時点）</h3>
+<ul>
+<li><strong>librive_text.so</strong> が16KB未対応</li>
+<li>Flutter本体は対応済みだが、Riveプラグインがボトルネック</li>
+</ul>
+<h3 id="%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95">対応方法</h3>
+<ol>
+<li>
+<p><strong>NDK r28.1を使用</strong></p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-gradle">android {
+    ndkVersion <span class="hljs-string">&quot;28.1.13356709&quot;</span>  <span class="hljs-comment">// PR #4198で検証済み</span>
+}
+</code></pre>
+</li>
+<li>
+<p><strong>check_elf_alignment.shで確認</strong></p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash"><span class="hljs-comment"># すべてのライブラリがALIGNEDになることを確認</span>
+./check_elf_alignment.sh app-release.apk
+</code></pre>
+</li>
+<li>
+<p><strong>一時的な代替案</strong></p>
+<ul>
+<li>Lottieアニメーション使用を検討</li>
+<li>RiveのIssueを監視して最新版を確認</li>
+</ul>
+</li>
+</ol>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="31" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="31" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E3%83%86%E3%82%B9%E3%83%88%E7%92%B0%E5%A2%83%E3%81%AE%E6%A7%8B%E7%AF%89">テスト環境の構築</h1>
 <h2 id="16kb%E3%82%A8%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97">16KBエミュレータのセットアップ</h2>
 <ol>
@@ -629,7 +648,7 @@ https://github.com/[plugin-name]/issues
 </tr>
 <tr>
 <td>Target</td>
-<td><strong>Google APIs Experimental 16k Page Size</strong> <img class="emoji" draggable="false" alt="⚠️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/26a0.svg" data-marp-twemoji=""/></td>
+<td><strong>16k Page Size (Experimental)</strong> <img class="emoji" draggable="false" alt="⚠️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/26a0.svg" data-marp-twemoji=""/></td>
 </tr>
 </tbody>
 </table>
@@ -643,46 +662,64 @@ https://github.com/[plugin-name]/issues
 </li>
 </ol>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="31" data-paginate="true" data-class="section" data-theme="ca-business" lang="en-US" class="section" data-marpit-pagination="31" style="--paginate:true;--class:section;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="32" data-paginate="true" data-class="section" data-theme="ca-business" lang="en-US" class="section" data-marpit-pagination="32" style="--paginate:true;--class:section;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%F0%9F%93%8B-%E3%81%BE%E3%81%A8%E3%82%81"><img class="emoji" draggable="false" alt="📋" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f4cb.svg" data-marp-twemoji=""/> まとめ</h1>
 <h2 id="%E4%BB%8A%E6%97%A5%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8B16kb%E5%AF%BE%E5%BF%9C">今日から始める16KB対応</h2>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="32" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="32" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
-<h1 id="%E5%AF%BE%E5%BF%9C%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88">対応チェックリスト</h1>
-<h2 id="%E4%BB%8A%E3%81%99%E3%81%90%E3%82%84%E3%82%8B%E3%81%93%E3%81%A8">今すぐやること</h2>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="33" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="33" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
+<h1 id="%E5%AF%BE%E5%BF%9C%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88-14">対応チェックリスト 1/4</h1>
+<h2 id="%E7%8F%BE%E7%8A%B6%E7%A2%BA%E8%AA%8D">現状確認</h2>
+<h3 id="apk%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF">APKチェック</h3>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">./check_elf_alignment.sh app-release.apk
+</code></pre>
+<h3 id="%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E5%AF%BE%E5%BF%9C%E7%8A%B6%E6%B3%81">プラグイン対応状況</h3>
 <ul>
-<li>
-<p>[ ] <strong>現状確認</strong></p>
-<ul>
-<li>[ ] <code>check_elf_alignment.sh</code>でAPKをチェック</li>
-<li>[ ] 使用プラグインの対応状況を確認</li>
-</ul>
-</li>
-<li>
-<p>[ ] <strong>環境更新</strong></p>
-<ul>
-<li>[ ] Flutter 3.24.1以上にアップデート</li>
-<li>[ ] NDK r27以上をインストール</li>
-<li>[ ] AGP 8.6.0以上に更新</li>
-</ul>
-</li>
-<li>
-<p>[ ] <strong>設定変更</strong></p>
-<ul>
-<li>[ ] build.gradle修正（compileSdk/targetSdk 35）</li>
-<li>[ ] NDK設定を追加</li>
-<li>[ ] androidx.core:core-ktx 1.16.0以上</li>
-</ul>
-</li>
-<li>
-<p>[ ] <strong>テスト</strong></p>
-<ul>
-<li>[ ] 16KBエミュレータで動作確認</li>
-</ul>
-</li>
+<li>Riveライブラリのステータス確認</li>
+<li>ネイティブライブラリを含むプラグインのリストアップ</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="33" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="33" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="34" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="34" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
+<h1 id="%E5%AF%BE%E5%BF%9C%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88-24">対応チェックリスト 2/4</h1>
+<h2 id="%E7%92%B0%E5%A2%83%E6%9B%B4%E6%96%B0">環境更新</h2>
+<h3 id="%E5%BF%85%E9%A0%88%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3">必須バージョン</h3>
+<ul>
+<li><strong>Flutter</strong>: 3.24.1以上</li>
+<li><strong>NDK</strong>: r27以上（推奨: r28.1）</li>
+<li><strong>AGP</strong>: 8.6.0以上</li>
+</ul>
+<h3 id="%E6%9B%B4%E6%96%B0%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">更新コマンド</h3>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">flutter upgrade
+</code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="35" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="35" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
+<h1 id="%E5%AF%BE%E5%BF%9C%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88-34">対応チェックリスト 3/4</h1>
+<h2 id="%E8%A8%AD%E5%AE%9A%E5%A4%89%E6%9B%B4">設定変更</h2>
+<h3 id="buildgradle%E3%81%AE%E4%BF%AE%E6%AD%A3">build.gradleの修正</h3>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-gradle">android {
+    compileSdk <span class="hljs-number">35</span>
+    targetSdk <span class="hljs-number">35</span>
+    ndkVersion <span class="hljs-string">&quot;28.1.13356709&quot;</span>
+}
+</code></pre>
+<h3 id="%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82">依存関係</h3>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-gradle">implementation <span class="hljs-string">&#x27;androidx.core:core-ktx:1.16.0&#x27;</span>
+</code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="36" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="36" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
+<h1 id="%E5%AF%BE%E5%BF%9C%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88-44">対応チェックリスト 4/4</h1>
+<h2 id="%E3%83%86%E3%82%B9%E3%83%88">テスト</h2>
+<h3 id="16kb%E3%82%A8%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%BF%E3%81%A7%E7%A2%BA%E8%AA%8D">16KBエミュレータで確認</h3>
+<ul>
+<li>AVD Managerで「16k Page Size (Experimental)」を選択</li>
+<li>アプリの起動テスト</li>
+<li>パフォーマンス測定</li>
+</ul>
+<h3 id="%E6%9C%80%E7%B5%82%E7%A2%BA%E8%AA%8D">最終確認</h3>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">./check_elf_alignment.sh app-release.apk
+<span class="hljs-comment"># すべてALIGNED (2^16)になること</span>
+</code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="37" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="37" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E3%81%AA%E3%81%9C%E4%BB%8A%E3%81%8B%E3%82%89%E6%BA%96%E5%82%99%E3%81%8C%E5%BF%85%E8%A6%81%E3%81%8B">なぜ今から準備が必要か</h1>
 <h2 id="2025%E5%B9%B411%E6%9C%88%E3%81%BE%E3%81%A7%E3%81%BE%E3%81%A0%E6%99%82%E9%96%93%E3%81%8C%E3%81%82%E3%82%8B">2025年11月まで「まだ時間がある」？</h2>
 <h3 id="%E2%9D%8C-%E5%AE%9F%E3%81%AF%E3%81%9D%E3%81%86%E3%81%A7%E3%82%82%E3%81%AA%E3%81%84%E7%90%86%E7%94%B1"><img class="emoji" draggable="false" alt="❌" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" data-marp-twemoji=""/> 実はそうでもない理由</h3>
@@ -711,24 +748,86 @@ https://github.com/[plugin-name]/issues
 </ol>
 <p><strong>早めの対応で余裕を持った移行を！</strong></p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="34" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="34" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="38" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="38" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
+<h1 id="%E5%AE%9F%E8%A3%85%E6%99%82%E3%81%AE%E6%B3%A8%E6%84%8F%E7%82%B9-13">実装時の注意点 1/3</h1>
+<h2 id="%E6%AE%B5%E9%9A%8E%E7%9A%84%E3%81%AA%E5%AF%BE%E5%BF%9C%E3%81%8C%E5%BF%85%E8%A6%81">段階的な対応が必要</h2>
+<h3 id="%E5%AE%9F%E9%9A%9B%E3%81%AEpr%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B6">実際のPRから学ぶ</h3>
+<ul>
+<li>
+<p><strong>PR #4049</strong>: Android 15基本対応</p>
+<ul>
+<li>NDK r27.2.12479018を使用</li>
+<li>基本的なSDK/AGP更新</li>
+</ul>
+</li>
+<li>
+<p><strong>PR #4198</strong>: 16KB完全対応</p>
+<ul>
+<li>NDK r28.1.13356709へ更新</li>
+<li>Riveライブラリ問題解決</li>
+</ul>
+</li>
+</ul>
+<p><strong>ポイント</strong>: プラグインの対応状況により複数回の更新が必要</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="39" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="39" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
+<h1 id="%E5%AE%9F%E8%A3%85%E6%99%82%E3%81%AE%E6%B3%A8%E6%84%8F%E7%82%B9-23">実装時の注意点 2/3</h1>
+<h2 id="%E6%8A%80%E8%A1%93%E7%9A%84%E3%81%AA%E5%88%B6%E7%B4%84">技術的な制約</h2>
+<h3 id="desugar%E5%88%B6%E7%B4%84">Desugar制約</h3>
+<ul>
+<li>flutter_local_notificationsの制約でJava 11に制限</li>
+<li>最新のJava機能が使用不可</li>
+</ul>
+<h3 id="gradle%E8%AD%A6%E5%91%8A">Gradle警告</h3>
+<ul>
+<li>memory_infoがjcenter使用</li>
+<li>update_availableがjcenter使用</li>
+<li>将来的な移行が必要</li>
+</ul>
+<h3 id="builddir%E9%9D%9E%E6%8E%A8%E5%A5%A8">buildDir非推奨</h3>
+<ul>
+<li>影響範囲が大きいため移行見送り</li>
+<li>次回の大規模更新で対応予定</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="40" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="40" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
+<h1 id="%E5%AE%9F%E8%A3%85%E6%99%82%E3%81%AE%E6%B3%A8%E6%84%8F%E7%82%B9-33">実装時の注意点 3/3</h1>
+<h2 id="%E6%A4%9C%E8%A8%BC%E3%81%AE%E9%87%8D%E8%A6%81%E6%80%A7">検証の重要性</h2>
+<h3 id="%E8%A4%87%E6%95%B0%E3%81%AE%E6%A4%9C%E8%A8%BC%E6%89%8B%E6%B3%95%E3%82%92%E4%BD%B5%E7%94%A8">複数の検証手法を併用</h3>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash"><span class="hljs-comment"># 1. スクリプトでの確認</span>
+./check_elf_alignment.sh app-release.apk
+
+<span class="hljs-comment"># 2. Android Studioでの確認</span>
+<span class="hljs-comment"># Build &gt; Analyze APK</span>
+
+<span class="hljs-comment"># 3. 実機での動作確認</span>
+<span class="hljs-comment"># 16KBエミュレータでのテスト</span>
+</code></pre>
+<h3 id="%E6%A4%9C%E8%A8%BC%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88">検証ポイント</h3>
+<ul>
+<li>すべてのネイティブライブラリがALIGNED</li>
+<li>アプリの起動と基本動作</li>
+<li>パフォーマンスの変化</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="41" data-paginate="true" data-theme="ca-business" lang="en-US" data-marpit-pagination="41" style="--paginate:true;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E5%8F%82%E8%80%83%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9">参考リソース</h1>
 <h2 id="%E5%85%AC%E5%BC%8F%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88">公式ドキュメント</h2>
 <ul>
-<li><a href="https://developer.android.com/guide/practices/page-sizes">Android: 16KB Page Size対応ガイド</a></li>
-<li><a href="https://github.com/flutter/flutter/wiki/Android-15">Flutter: Android 15対応状況</a></li>
+<li><a href="https://developer.android.com/guide/practices/page-sizes">Android 16KB対応ガイド</a></li>
+<li><a href="https://github.com/flutter/flutter/wiki/Android-15">Flutter Android 15 Wiki</a></li>
 </ul>
 <h2 id="%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0">トラブルシューティング</h2>
 <ul>
 <li><a href="https://github.com/flutter/flutter/issues/150168">Flutter Issue #150168</a></li>
-<li><a href="https://stackoverflow.com/questions/tagged/android-16kb-page-size">Stack Overflow: android-16kb-page-size</a></li>
+<li><a href="https://stackoverflow.com/questions/tagged/android-16kb-page-size">Stack Overflow</a></li>
 </ul>
 <h2 id="%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%B3%E3%83%BC%E3%83%89">サンプルコード</h2>
 <ul>
-<li><a href="https://github.com/android/platform-samples">16KB対応済みサンプルアプリ</a></li>
+<li><a href="https://github.com/android/platform-samples">サンプルアプリ</a></li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="35" data-paginate="true" data-class="lead" data-theme="ca-business" lang="en-US" class="lead" data-marpit-pagination="35" style="--paginate:true;--class:lead;--theme:ca-business;" data-marpit-pagination-total="35">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="42" data-paginate="true" data-class="lead" data-theme="ca-business" lang="en-US" class="lead" data-marpit-pagination="42" style="--paginate:true;--class:lead;--theme:ca-business;" data-marpit-pagination-total="42">
 <h1 id="%E3%81%94%E6%B8%85%E8%81%B4%E3%81%82%E3%82%8A%E3%81%8C%E3%81%A8%E3%81%86%E3%81%94%E3%81%96%E3%81%84%E3%81%BE%E3%81%97%E3%81%9F">ご清聴ありがとうございました</h1>
 <h2 id="%E8%B3%AA%E5%95%8F%E3%83%BB%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3">質問・ディスカッション</h2>
 <h3 id="%E4%B8%80%E7%B7%92%E3%81%AB16kb%E5%AF%BE%E5%BF%9C%E3%82%92%E9%80%B2%E3%82%81%E3%81%BE%E3%81%97%E3%82%87%E3%81%86">一緒に16KB対応を進めましょう！</h3>
