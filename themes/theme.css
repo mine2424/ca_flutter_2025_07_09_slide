@@ -55,7 +55,7 @@ section {
   font-family: var(--font-family-main);
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  padding: 30px 40px;
+  padding: 40px 40px 30px 40px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -71,6 +71,7 @@ section h1 {
   color: var(--primary-color);
   font-size: 40px;
   font-weight: 700;
+  margin-top: 0;
   margin-bottom: var(--spacing-md);
   border-bottom: 3px solid var(--primary-color);
   padding-bottom: var(--spacing-xs);
@@ -240,8 +241,8 @@ section img {
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-xl);
   margin: var(--spacing-lg) 0;
-  max-height: calc(100% - 100px);
-  overflow: hidden;
+  max-height: calc(100% - 80px);
+  overflow: visible;
 }
 
 .columns-3 {
@@ -249,7 +250,8 @@ section img {
   grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-md);
   margin: var(--spacing-md) 0;
-  max-height: calc(100% - 100px);
+  max-height: calc(100% - 80px);
+  overflow: visible;
 }
 
 /* Strategy grid */
@@ -258,8 +260,8 @@ section img {
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-md);
   margin: var(--spacing-md) 0;
-  max-height: calc(100% - 120px);
-  overflow: hidden;
+  max-height: calc(100% - 100px);
+  overflow: visible;
 }
 
 .strategy-section {
