@@ -117,10 +117,9 @@ paginate: true
 </div>
 </div>
 
-## 技術的な詳細
-- **TLB（Translation Lookaside Buffer）**: 仮想アドレスを物理アドレスに変換するキャッシュ
-- **ページフォルト**: メモリアクセス時に発生する割り込みが減少
-- **メモリフラグメンテーション**: 大きなページで断片化が減少
+<div style="margin-top: 10px; font-size: 18px; line-height: 1.3;">
+<strong>技術用語</strong>: TLB = アドレス変換キャッシュ | ページフォルト = メモリ割り込み減少 | フラグメンテーション = 断片化削減
+</div>
 
 ---
 
