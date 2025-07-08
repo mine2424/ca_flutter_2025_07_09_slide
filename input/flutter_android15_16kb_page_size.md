@@ -23,7 +23,7 @@ paginate: true
 ### にしみね りょうた
 
 **所属**
-- CyberAgent 
+- CyberAgent
 - SGEマンガ事業部
 - 2024年入社
 
@@ -33,7 +33,7 @@ paginate: true
 ## 趣味・興味
 - 🏎️ **F1**
 - ♠️ **ポーカー**
-- 🎸 **フジロック**  
+- 🎸 **フジロック**
   今年参戦します！
 
 </div>
@@ -138,8 +138,8 @@ paginate: true
 
 ## 重要なポイント
 
-✅ **対象**: 新規アプリ・アップデート両方  
-✅ **条件**: Android 15（API 35）をターゲット  
+✅ **対象**: 新規アプリ・アップデート両方
+✅ **条件**: Android 15（API 35）をターゲット
 ❌ **未対応**: Google Play審査に**通らない**
 
 **公式要件**: [Google Play Console Help](https://support.google.com/googleplay/android-developer/answer/11926878)
@@ -151,13 +151,10 @@ paginate: true
 <div class="columns-2">
 <div>
 
-## 2025年11月1日からの要件
+## 2025年8月31日からの要件
 
-**新規アプリ・アップデート必須要件：**
-- **通常アプリ**: Android 15 (API 35)以上
-- **Wear OS**: Android 14 (API 34)以上
-- **Android TV**: Android 14 (API 34)以上
-- **Android Automotive**: Android 14 (API 34)以上
+**新規アプリ・既存アプリのアップデート必須要件：**
+- Android 15 (API 35)以上
 
 </div>
 <div>
@@ -175,7 +172,7 @@ paginate: true
 </div>
 </div>
 
-**公式ドキュメント**: [Meet Google Play's target API level requirement](https://support.google.com/googleplay/android-developer/answer/11926878)
+**公式ドキュメント**: [Target API level requirements for Google Play apps](https://support.google.com/googleplay/android-developer/answer/11926878?hl=en)
 
 ---
 
@@ -211,55 +208,7 @@ paginate: true
 </div>
 </div>
 
-## SDKバージョンによる違い
-- **SDK 34以前**: 16KBページサイズ未対応
-- **SDK 35（Android 15）**: 16KBページサイズサポート開始
-- **SDK 36（Android 16）**: 16KBページサイズがデフォルト予定
-
-**出典**: Android Developers Blog  
-"Improving Android memory efficiency - 16 KB page size" (2024)
-
----
-
-# Flutter実アプリでの測定
-
-<div class="columns-2">
-<div class="metric-card">
-<div class="metric-number">31.7<small>%増加</small></div>
-<p>初回起動時間</p>
-</div>
-<div>
-
-## 測定データ詳細
-```
-4KB:  3,815.65 μs
-16KB: 5,027.84 μs
-```
-
-## なぜ遅くなる？🤔
-- 初回のメモリアライメント
-- ページテーブルの初期化
-- **でも心配無用！**
-
-</div>
-</div>
-
-## 詳細なパフォーマンス測定結果
-
-<div class="comparison-matrix">
-
-| メトリクス | 4KB | 16KB | 変化率 |
-|-----------|-----|------|---------|
-| 初回起動 | 3.82ms | 5.03ms | +31.7% |
-| 2回目以降 | 2.15ms | 1.89ms | -12.1% |
-| メモリ使用量 | 145MB | 138MB | -4.8% |
-| GC频度 | 8.3回/分 | 6.2回/分 | -25.3% |
-
-</div>
-
-💡 **長期的にはメリットが大きい**
-- メモリ圧迫時のパフォーマンス向上
-- システム全体の安定性向上
+**出典**: [Support 16 KB page sizes - Benefits and performance gains](https://developer.android.com/guide/practices/page-sizes#benefits)
 
 ---
 
@@ -275,7 +224,7 @@ paginate: true
 ## こんなエラーに遭遇します
 
 ```
-Failure [INSTALL_FAILED_INVALID_APK: 
+Failure [INSTALL_FAILED_INVALID_APK:
 Failed to extract native libraries, res=-2]
 ```
 
@@ -311,11 +260,16 @@ Failed to extract native libraries, res=-2]
 
 </div>
 </div>
+<div class="columns-2">
+<div>
 
-## 主な.soファイル
+### 主な.soファイル
 - `libflutter.so` - Flutterエンジン
 - `libapp.so` - Dartコードのコンパイル結果
 - `lib〇〇.so` - 各種プラグイン
+
+</div>
+</div>
 
 ---
 
@@ -323,10 +277,10 @@ Failed to extract native libraries, res=-2]
 
 <div class="strategy-grid">
 <div class="strategy-section">
-<h3>❌ Rive</h3>
+<h3>✅ Rive</h3>
 <p>アニメーションライブラリ</p>
-<p>librive_text.so が非対応</p>
-<span class="badge danger">要対応</span>
+<p>NDK r28.1で自動対応</p>
+<span class="badge success">解決済</span>
 </div>
 <div class="strategy-section">
 <h3>⚠️ local_notifications</h3>
@@ -390,26 +344,96 @@ Android 16では16KBページサイズ互換モードが追加されます。
 
 # STEP1: 現状を確認する
 
-## まずはAPKをチェック
+## 1. APKをビルド
 
 ```bash
-# 1. APKをビルド
 flutter build apk --release
+```
 
-# 2. Googleのチェックスクリプトをダウンロード
+Flutterアプリケーションのリリース版APKをビルドします。
+
+---
+
+# STEP1: 現状を確認する
+
+## 2. チェックスクリプトをダウンロード
+
+```bash
 curl -O https://android.googlesource.com/\
-  .../check_elf_alignment.sh
+  platform/build/+/refs/heads/main/\
+  tools/check_elf_alignment.sh
 
-# 3. チェック実行
-./check_elf_alignment.sh build/app/outputs/flutter-apk/app-release.apk
+chmod +x check_elf_alignment.sh
 ```
 
-## 結果の見方
+Googleが提供するアライメントチェック用スクリプトを取得します。
+
+---
+
+# STEP1: 現状を確認する
+
+## 3. APKのアライメントをチェック
+
+```bash
+./check_elf_alignment.sh /build/app/outputs/flutter-apk/app-release.apk
 ```
-./libflutter.so: ALIGNED (2^16) ✓    # OK!
-./libapp.so: ALIGNED (2^14) ✓        # OK!
-./libplugin.so: UNALIGNED (2^12) ✗   # 要修正！
+
+ビルドしたAPKに含まれるネイティブライブラリのアライメントを確認します。
+
+---
+
+# STEP1: 現状を確認する
+
+## 4. 結果の見方
+
 ```
+arm64-v8a/libflutter.so: ALIGNED (2^16)    # OK!
+arm64-v8a/libapp.so: ALIGNED (2^16)        # OK!
+x86_64/libflutter.so: ALIGNED (2^16)       # OK!
+x86_64/libapp.so: ALIGNED (2^16)           # OK!
+x86_64/libplugin.so: UNALIGNED             # 修正しましょう
+armeabi-v7a/libplugin.so UNALIGNED         # 修正不要
+```
+
+### 重要なポイント
+- **arm64-v8a** と **x86_64** が **ALIGNED** なら基本的にOK ✅
+- **armeabi-v7a** は32bitアーキテクチャのため影響なし
+- **UNALIGNED** のライブラリがある場合は更新が必要
+
+---
+
+# アーキテクチャ別の対応状況
+
+## 16KBページサイズ対応が必要なアーキテクチャ
+
+<div class="columns-2">
+<div>
+
+### 対応必須 ⚠️
+- **arm64-v8a** (64bit ARM)
+  - 最新のAndroidデバイスの主流
+  - Pixel、Galaxy等のフラグシップ機
+
+- **x86_64** (64bit Intel/AMD)
+  - エミュレータ
+  - 一部のChromebook
+
+</div>
+<div>
+
+### 対応不要 ✅
+- **armeabi-v7a** (32bit ARM)
+  - 古いAndroidデバイス
+  - 16KBページサイズの影響なし
+
+- **x86** (32bit Intel/AMD)
+  - 古いエミュレータ
+  - ほぼ使用されていない
+
+</div>
+</div>
+
+**重要**: arm64-v8aとx86_64がALIGNEDであれば、Google Playの要件を満たします。
 
 ---
 
@@ -420,13 +444,13 @@ curl -O https://android.googlesource.com/\
 
 ## 必要なバージョン
 
-<div class="strategy-section">
+<div class="strategy-section" style="margin-bottom: 20px;">
 <h3>📱 Android SDK</h3>
 <p><strong>34 → 35</strong></p>
 <p>compileSdk で確認</p>
 </div>
 
-<div class="strategy-section">
+<div class="strategy-section" style="margin-bottom: 20px;">
 <h3>🔧 NDK</h3>
 <p><strong>r25.1 → r28.1</strong></p>
 <p>ndkVersion で確認</p>
@@ -444,7 +468,7 @@ curl -O https://android.googlesource.com/\
 
 ## アップデート手順
 
-<div class="strategy-section">
+<div class="strategy-section" style="margin-bottom: 20px;">
 <h3>📦 Gradle</h3>
 <p><strong>8.9 → 8.11.1</strong></p>
 <p>gradle-wrapper.properties</p>
@@ -506,18 +530,18 @@ android/
 android {
     namespace "com.example.myapp"
     compileSdk 35  // ← Android 15に変更
-    
+
     defaultConfig {
         applicationId "com.example.myapp"
         minSdk 21
         targetSdk 35  // ← Android 15に変更
-        
+
         // NDKバージョンによって設定が異なる
         // NDK r26以前の場合（手動設定が必要）
         ndk {
             ldFlags += ["-Wl,-z,max-page-size=16384"]
         }
-        
+
         // NDK r27の場合（CMake設定が必要）
         externalNativeBuild {
             cmake {
@@ -535,11 +559,9 @@ android {
 
 # NDKバージョンの指定
 
-<div class="columns-2">
-<div>
-
 ## NDK更新の変遷
 
+<div class="columns-3">
 <div class="metric-card">
 <div class="metric-number">r25.1</div>
 <p>Android 14標準</p>
@@ -554,17 +576,20 @@ android {
 <div class="metric-number">r28.1</div>
 <p>16KB完全対応 ✅</p>
 </div>
-
 </div>
-<div>
 
-## バージョン別設定方法
+各NDKバージョンで16KB対応方法が異なります。
 
-### 🟡 NDK r27（設定が必要）
+---
+
+# NDKバージョンの指定 - r27
+
+## NDK r27（設定が必要）
+
 ```gradle
 android {
     ndkVersion "27.2.12479018"
-    
+
     externalNativeBuild {
         cmake {
             arguments += [
@@ -575,7 +600,14 @@ android {
 }
 ```
 
-### 🟢 NDK r28+（推奨）
+NDK r27では手動でCMakeの引数設定が必要です。
+
+---
+
+# NDKバージョンの指定 - r28
+
+## NDK r28+（推奨）
+
 ```gradle
 android {
     ndkVersion "28.1.13356709"
@@ -583,22 +615,28 @@ android {
 }
 ```
 
-</div>
-</div>
+NDK r28.1以降では16KBページサイズ対応が自動化されています。
+**これが最も簡単な方法です。**
 
 ---
 
-# 依存関係の更新
+# 依存関係の更新 1/2
 
 ## androidx.coreの更新が必須
 
 ```gradle
 dependencies {
     implementation 'androidx.core:core-ktx:1.16.0'  // ← 1.16.0以上必須
-    
+
     // その他の依存関係...
 }
 ```
+
+androidx.core 1.16.0以降が16KBページサイズに対応しています。
+
+---
+
+# 依存関係の更新 2/2
 
 ## AGPバージョンも確認
 
@@ -611,6 +649,8 @@ buildscript {
     }
 }
 ```
+
+Android Gradle Plugin (AGP) 8.6.0以上が必要です。
 
 ---
 
@@ -634,39 +674,48 @@ $ flutter build apk --release
 $ ./check_elf_alignment.sh app-release.apk
 
 Checking app-release.apk...
-libflutter.so: ALIGNED (2^14) ⚠️
-libapp.so: ALIGNED (2^14) ⚠️
-librive_text.so: UNALIGNED (2^12) ❌
+arm64-v8a/libflutter.so: ALIGNED (2^14) ⚠️
+arm64-v8a/libapp.so: ALIGNED (2^14) ⚠️
+arm64-v8a/librive_text.so: UNALIGNED ❌
+x86_64/libflutter.so: ALIGNED (2^14) ⚠️
+x86_64/libapp.so: ALIGNED (2^14) ⚠️
+armeabi-v7a/libflutter.so: UNALIGNED (対応不要)
 ```
 
-**結果**: 16KB対応が必要！
+**結果**: arm64-v8aとx86_64の16KB対応が必要！
 
 ---
 
-# デモ: build.gradle修正
+# デモ: build.gradle修正 1/3
 
-## 2. 設定ファイルの修正
+## Before - 現在の設定
 
-### Before
 ```gradle
 android {
     compileSdk 34
-    
+
     defaultConfig {
         targetSdk 34
     }
 }
 ```
 
-### After（NDK r27の場合）
+Android 14（API 34）をターゲットにした従来の設定です。
+
+---
+
+# デモ: build.gradle修正 2/3
+
+## After - NDK r27の場合
+
 ```gradle
 android {
     compileSdk 35
     ndkVersion "27.2.12479018"
-    
+
     defaultConfig {
         targetSdk 35
-        
+
         externalNativeBuild {
             cmake {
                 arguments += [
@@ -678,17 +727,26 @@ android {
 }
 ```
 
-### After（NDK r28の場合 - 推奨）
+NDK r27では手動でCMake引数の設定が必要です。
+
+---
+
+# デモ: build.gradle修正 3/3
+
+## After - NDK r28の場合（推奨）
+
 ```gradle
 android {
     compileSdk 35
     ndkVersion "28.1.13356709"  // 追加設定不要！
-    
+
     defaultConfig {
         targetSdk 35
     }
 }
 ```
+
+NDK r28.1以降では自動的に16KB対応されるため、追加設定は不要です。
 
 ---
 
@@ -706,12 +764,99 @@ $ flutter build apk --release
 $ ./check_elf_alignment.sh app-release.apk
 
 Checking app-release.apk...
-libflutter.so: ALIGNED (2^16) ✅
-libapp.so: ALIGNED (2^16) ✅
-librive_text.so: UNALIGNED (2^12) ❌  # プラグイン側の対応待ち
+arm64-v8a/libflutter.so: ALIGNED (2^16) ✅
+arm64-v8a/libapp.so: ALIGNED (2^16) ✅
+arm64-v8a/librive_text.so: UNALIGNED ❌  # プラグイン側の対応待ち
+x86_64/libflutter.so: ALIGNED (2^16) ✅
+x86_64/libapp.so: ALIGNED (2^16) ✅
+armeabi-v7a/libflutter.so: UNALIGNED (対応不要)
 ```
 
-**Flutter本体は対応完了！**
+**重要**: arm64-v8aとx86_64のFlutter本体は対応完了！
+
+---
+
+<!-- _class: section -->
+
+# 🧪 テスト環境の構築
+## 16KBページサイズでの動作確認
+
+---
+
+# 16KBテスト環境の準備
+
+## Google公式の推奨環境
+
+<div class="columns-2">
+<div>
+
+### 実機テスト
+**Pixel 8/8a 以降**
+- Android 15 Developer Preview
+- [Flash Tool](https://developer.android.com/about/versions/15/get#google-pixel-devices)で書き込み
+
+### エミュレータテスト
+**Android Studio Iguana以降**
+- Android 15 (API 35)
+- 16KB page size system image
+
+</div>
+<div>
+
+### テスト対象デバイス
+- **必須**: Pixel 8/8a/8 Pro
+- **推奨**: Pixel 9シリーズ
+- **確認**: Pixel 6/7も対応可
+
+### 注意事項
+⚠️ 16KBページサイズは実験的機能
+⚠️ 実機の方が正確な結果を取得可能
+
+</div>
+</div>
+
+---
+
+# エミュレータのセットアップ
+
+## Android Studio での設定手順
+1. **Tools** → **AVD Manager** → **Create Virtual Device**
+2. **Hardware Profile**: Pixel 8 以降を選択
+3. **System Image**:
+   ```
+   Release Name: Android 15
+   API Level: 35
+   ABI: x86_64
+   Target: Android 15 (16 KB Page Size)
+   ```
+
+---
+
+# 動作確認とパフォーマンス測定
+
+## 基本的な確認コマンド
+
+```bash
+# ページサイズの確認
+adb shell getconf PAGE_SIZE
+# 期待値: 16384
+
+# APKのインストールと起動
+adb install app-release.apk
+adb shell am start -n com.example.app/.MainActivity
+
+# アライメントログの確認
+adb logcat | grep -E "alignment|page_size"
+```
+
+## パフォーマンス測定
+```bash
+# 起動時間の測定
+adb shell am start -W com.example.app/.MainActivity
+
+# メモリ使用量の確認
+adb shell dumpsys meminfo com.example.app | grep TOTAL
+```
 
 ---
 
@@ -722,9 +867,9 @@ librive_text.so: UNALIGNED (2^12) ❌  # プラグイン側の対応待ち
 
 ---
 
-# エラー別対処法
+# エラー別対処法 1/3
 
-## 1. INSTALL_FAILED_INVALID_APK
+## INSTALL_FAILED_INVALID_APK
 
 ```bash
 # Gradleキャッシュをクリア
@@ -735,148 +880,148 @@ rm -rf ~/.gradle/caches/
 flutter build apk --release
 ```
 
-## 2. AGP/Gradle互換性エラー
+**原因**: ネイティブライブラリのアライメント不良
+**対処**: クリーンビルドで解決することが多い
 
+---
+
+# エラー別対処法 2/3
+
+## AGP/Gradle互換性エラー
+
+### エラーメッセージ
 ```
 Dependency 'androidx.core:core-ktx:1.16.0' requires AGP 8.6.0+
 ```
 
-**解決**: android/gradle/wrapper/gradle-wrapper.properties
+### 解決方法
+android/gradle/wrapper/gradle-wrapper.properties を更新：
 ```properties
 distributionUrl=https://services.gradle.org/\
   distributions/gradle-8.11.1-all.zip
 ```
 
-## 3. NDKバージョンエラー
+AGPとGradleのバージョンは互換性が必要です。
 
+---
+
+# エラー別対処法 3/3
+
+## NDKバージョンエラー
+
+### エラーメッセージ
 ```
 No version of NDK matched the requested version
 ```
 
-**解決**: Android StudioでNDKをインストール
+### 解決方法
+Android StudioでNDKをインストール：
+
 1. **SDK Manager** → **SDK Tools**タブ
 2. **Show Package Details**をチェック
-3. 必要なNDKバージョンを選択してインストール
+3. 必要なNDKバージョンを選択してインストール（推奨: NDK r28.1.13356709）
 
 ---
 
-# プラグイン対応状況の確認
+# 主要パッケージの対応状況 1/3
 
-## 対応待ちプラグインの場合
+## Rive - アニメーションライブラリ
 
-### 1. 代替ライブラリを検討
-- Rive → Lottie
-- 独自実装 → Flutter標準機能
+### ✅ 解決方法
+NDK r28.1に更新するだけで自動対応
 
-### 2. Issue/PRを確認
-```bash
-# GitHubで確認
-https://github.com/[plugin-name]/issues
-→ "16KB" や "page size" で検索
+```gradle
+android {
+    ndkVersion "28.1.13356709"
+}
 ```
 
-### 3. 一時的な回避策
-```yaml
-# pubspec.yaml
-dependency_overrides:
-  plugin_name:
-    git:
-      url: https://github.com/user/plugin_name
-      ref: 16kb-support  # フォーク版を使用
+### 実証済み
+- [JUMPTOON PR #4198](https://github.com/JUMPTOON/app/pull/4198)
+- [Rive Issue #479](https://github.com/rive-app/rive-flutter/issues/479)
+
+---
+
+# 主要パッケージの対応状況 2/3
+
+## flutter_local_notifications - 通知機能
+
+### ⚠️ 問題点
+- Desugar依存によりJava 11に制限
+- 最新のJava機能が使用不可
+
+### 対応方法
+```gradle
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
 ```
 
-### 4. ネイティブライブラリの再ビルド
-```bash
-# NDK r26以前の場合
-export LOCAL_LDFLAGS="-Wl,-z,max-page-size=16384"
-./gradlew :plugin_name:assembleRelease
+---
 
-# NDK r27の場合
-export APP_SUPPORT_FLEXIBLE_PAGE_SIZES=true
-./gradlew :plugin_name:assembleRelease
-```
+# 主要パッケージの対応状況 3/3
+
+## その他の注意が必要なパッケージ
+
+<div class="columns-2">
+<div>
+
+### ⚠️ jcenter依存
+- **memory_info**
+- **update_available**
+
+Gradle警告が出るが動作に影響なし
+
+</div>
+<div>
+
+### ✅ 対応済み
+- **datadog_flutter** v2.11.0+
+- **Firebase** 全般
+- **shared_preferences**
+- **sqflite**
+
+</div>
+</div>
+
+### 💡 対応のコツ
+1. まずNDK r28.1に更新
+2. クリーンビルド実行
+3. それでも問題がある場合はIssueを確認
 
 ---
 
 # Riveライブラリの16KB対応
 
-## 対応状況と解決策
+## 🎉 朗報：NDK r28で解決！
 
-### 現状（2025年1月時点）
-- **librive_text.so** が16KB未対応
-- Flutter本体は対応済みだが、Riveプラグインがボトルネック
+### 解決方法（2025年1月確認済み）
 
-### 対応方法
+**NDK r28.1以降を使用するだけで自動的に対応されます**
 
-1. **NDK r28.1を使用**
-   ```gradle
-   android {
-       ndkVersion "28.1.13356709"  // PR #4198で検証済み
-   }
-   ```
-
-2. **check_elf_alignment.shで確認**
-   ```bash
-   # すべてのライブラリがALIGNEDになることを確認
-   ./check_elf_alignment.sh app-release.apk
-   ```
-
-3. **一時的な代替案**
-   - Lottieアニメーション使用を検討
-   - RiveのIssueを監視して最新版を確認
-
-### Riveライブラリの手動修正（上級者向け）
-```bash
-# Riveライブラリをリビルド
-git clone https://github.com/rive-app/rive-flutter
-cd rive-flutter
-
-# NDK設定を追加
-export ANDROID_NDK_HOME=/path/to/ndk/28.1.13356709
-export LOCAL_LDFLAGS="-Wl,-z,max-page-size=16384"
-
-# ビルド
-./build.sh android
+```gradle
+android {
+    ndkVersion "28.1.13356709"  // これだけでOK！
+}
 ```
 
----
+### 実証済みの事例
+- [JUMPTOON PR #4198](https://github.com/JUMPTOON/app/pull/4198)
+- [Rive Flutter Issue #479](https://github.com/rive-app/rive-flutter/issues/479#issuecomment-2962056705)
 
-# テスト環境の構築
-
-## 16KBエミュレータのセットアップ
-
-1. **Android Studio** → AVD Manager
-2. **Create Virtual Device**
-3. **System Image選択画面で**:
-
-<div class="comparison-matrix">
-
-| 項目 | 選択内容 |
-|------|---------|
-| Release Name | **Android 15** |
-| API Level | **35** |
-| ABI | **x86_64** |
-| Target | **16k Page Size (Experimental)** ⚠️ |
-
-</div>
-
-4. **Advanced Settings**:
-   - RAM: **8GB以上**推奨
-   - Internal Storage: **4GB以上**
-
-## エミュレータでの検証ポイント
-
+### 確認方法
 ```bash
-# ページサイズの確認
-adb shell getconf PAGE_SIZE
-# 16384 と表示されればOK
+./check_elf_alignment.sh app-release.apk
 
-# アプリのインストールテスト
-adb install app-release.apk
-
-# ログの確認
-adb logcat | grep -i "page\|align"
+# 結果：
+arm64-v8a/librive_text.so: ALIGNED (2^16) ✅
+x86_64/librive_text.so: ALIGNED (2^16) ✅
 ```
+
+**重要**: Riveを使用している場合は、NDK r28.1への更新が最も簡単な解決策です。
 
 ---
 
@@ -887,7 +1032,7 @@ adb logcat | grep -i "page\|align"
 
 ---
 
-# 対応チェックリスト 1/4
+# 対応チェックリスト 1/3
 
 ## 現状確認
 
@@ -902,23 +1047,7 @@ adb logcat | grep -i "page\|align"
 
 ---
 
-# 対応チェックリスト 2/4
-
-## 環境更新
-
-### 必須バージョン
-- **Flutter**: 3.24.1以上
-- **NDK**: r27以上（推奨: r28.1）
-- **AGP**: 8.6.0以上
-
-### 更新コマンド
-```bash
-flutter upgrade
-```
-
----
-
-# 対応チェックリスト 3/4
+# 対応チェックリスト 2/3
 
 ## 設定変更
 
@@ -938,19 +1067,18 @@ implementation 'androidx.core:core-ktx:1.16.0'
 
 ---
 
-# 対応チェックリスト 4/4
+# 対応チェックリスト 3/3
 
-## テスト
+## テストと確認
 
-### 16KBエミュレータで確認
-- AVD Managerで「16k Page Size (Experimental)」を選択
-- アプリの起動テスト
-- パフォーマンス測定
+### 動作確認
+- 16KBエミュレータまたはPixel 8以降で確認
+- アプリの起動と基本動作テスト
 
 ### 最終確認
 ```bash
 ./check_elf_alignment.sh app-release.apk
-# すべてALIGNED (2^16)になること
+# arm64-v8aとx86_64がALIGNED (2^16)になること
 ```
 
 ---
@@ -1007,7 +1135,7 @@ implementation 'androidx.core:core-ktx:1.16.0'
 - **PR #4049**: Android 15基本対応
   - NDK r27.2.12479018を使用
   - 基本的なSDK/AGP更新
-  
+
 - **PR #4198**: 16KB完全対応
   - NDK r28.1.13356709へ更新
   - Riveライブラリ問題解決
@@ -1052,36 +1180,26 @@ implementation 'androidx.core:core-ktx:1.16.0'
 ```
 
 ### 検証ポイント
-- すべてのネイティブライブラリがALIGNED
+- arm64-v8aとx86_64のライブラリがALIGNED
 - アプリの起動と基本動作
-- パフォーマンスの変化
-
-### パフォーマンス測定方法
-```bash
-# ベンチマークアプリを使用
-adb shell am start -W com.example.app/.MainActivity
-
-# メモリ使用量の確認
-adb shell dumpsys meminfo com.example.app
-
-# CPU使用率のモニタリング
-adb shell top -m 10 | grep com.example.app
-```
+- 16KBエミュレータまたは実機での動作確認
 
 ---
 
 # 参考リソース
 
-## 公式ドキュメント
-- [Android 16KB対応ガイド](https://developer.android.com/guide/practices/page-sizes)
+### 公式ドキュメント
+- [16KBページサイズのサポート](https://developer.android.com/guide/practices/page-sizes?hl=ja)
+- [Android 15の入手とテスト](https://developer.android.com/about/versions/15/get?hl=ja)
 - [Flutter Android 15 Wiki](https://github.com/flutter/flutter/wiki/Android-15)
 
-## トラブルシューティング
+### トラブルシューティング
 - [Flutter Issue #150168](https://github.com/flutter/flutter/issues/150168)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/android-16kb-page-size)
+- [Rive Issue #479](https://github.com/rive-app/rive-flutter/issues/479)
 
-## サンプルコード
-- [サンプルアプリ](https://github.com/android/platform-samples)
+### サンプルとツール
+- [check_elf_alignment.sh](https://android.googlesource.com/platform/build/+/refs/heads/main/tools/check_elf_alignment.sh)
+- [Android Flash Tool](https://flash.android.com/)
 
 ---
 
@@ -1089,9 +1207,7 @@ adb shell top -m 10 | grep com.example.app
 
 # ご清聴ありがとうございました
 
-## 質問・ディスカッション
+### みんなで Android 16KB 対応を乗り越えましょう！
 
-### 一緒に16KB対応を進めましょう！
-
-Twitter: @your_twitter  
-GitHub: @your_github
+Twitter: @nihon_kaizou
+GitHub: @mine2424
