@@ -437,54 +437,6 @@ armeabi-v7a/libplugin.so UNALIGNED         # 修正不要
 
 ---
 
-# STEP2: 開発環境を更新
-
-<div class="columns-2">
-<div>
-
-## 必要なバージョン
-
-<div class="strategy-section" style="margin-bottom: 20px;">
-<h3>📱 Android SDK</h3>
-<p><strong>34 → 35</strong></p>
-<p>compileSdk で確認</p>
-</div>
-
-<div class="strategy-section" style="margin-bottom: 20px;">
-<h3>🔧 NDK</h3>
-<p><strong>r25.1 → r28.1</strong></p>
-<p>ndkVersion で確認</p>
-<span class="badge primary">推奨</span>
-</div>
-
-<div class="strategy-section">
-<h3>🏗️ AGP</h3>
-<p><strong>8.3.2 → 8.10.0</strong></p>
-<p>build.gradle で確認</p>
-</div>
-
-</div>
-<div>
-
-## アップデート手順
-
-<div class="strategy-section" style="margin-bottom: 20px;">
-<h3>📦 Gradle</h3>
-<p><strong>8.9 → 8.11.1</strong></p>
-<p>gradle-wrapper.properties</p>
-</div>
-
-<div class="strategy-section">
-<h3>📚 androidx.core</h3>
-<p><strong>1.13.1 → 1.16.0</strong></p>
-<p>dependencies で確認</p>
-<span class="badge error">必須</span>
-</div>
-
-</div>
-</div>
-
----
 
 <!-- _class: section -->
 
@@ -530,18 +482,15 @@ android/
 android {
     namespace "com.example.myapp"
     compileSdk 35  // ← Android 15に変更
-
     defaultConfig {
         applicationId "com.example.myapp"
         minSdk 21
         targetSdk 35  // ← Android 15に変更
-
         // NDKバージョンによって設定が異なる
         // NDK r26以前の場合（手動設定が必要）
         ndk {
             ldFlags += ["-Wl,-z,max-page-size=16384"]
         }
-
         // NDK r27の場合（CMake設定が必要）
         externalNativeBuild {
             cmake {
@@ -550,7 +499,6 @@ android {
                 ]
             }
         }
-        // NDK r28以降は追加設定不要！
     }
 }
 ```
@@ -832,7 +780,7 @@ armeabi-v7a/libflutter.so: UNALIGNED (対応不要)
 
 ---
 
-# 動作確認とパフォーマンス測定
+# 動作確認
 
 ## 基本的な確認コマンド
 
@@ -849,14 +797,32 @@ adb shell am start -n com.example.app/.MainActivity
 adb logcat | grep -E "alignment|page_size"
 ```
 
-## パフォーマンス測定
+✅ ページサイズが16384と表示されれば環境設定OK
+✅ アプリが正常に起動すれば基本動作OK
+
+---
+
+# パフォーマンス測定
+
+## 測定コマンド
+
 ```bash
 # 起動時間の測定
 adb shell am start -W com.example.app/.MainActivity
+# TotalTime: XXXXms を確認
 
 # メモリ使用量の確認
 adb shell dumpsys meminfo com.example.app | grep TOTAL
+# TOTAL: XXXMB を確認
+
+# CPU使用率のモニタリング
+adb shell top -m 10 | grep com.example.app
 ```
+
+### 期待される結果
+- **起動時間**: 初回は遅いが、2回目以降は改善
+- **メモリ使用量**: 4KB時と比べて約5%削減
+- **CPU使用率**: ページフォルト減少により低下
 
 ---
 
@@ -936,8 +902,7 @@ android {
 }
 ```
 
-### 実証済み
-- [JUMPTOON PR #4198](https://github.com/JUMPTOON/app/pull/4198)
+### 参照
 - [Rive Issue #479](https://github.com/rive-app/rive-flutter/issues/479)
 
 ---
@@ -1008,20 +973,9 @@ android {
 }
 ```
 
-### 実証済みの事例
-- [JUMPTOON PR #4198](https://github.com/JUMPTOON/app/pull/4198)
+### 参照
 - [Rive Flutter Issue #479](https://github.com/rive-app/rive-flutter/issues/479#issuecomment-2962056705)
 
-### 確認方法
-```bash
-./check_elf_alignment.sh app-release.apk
-
-# 結果：
-arm64-v8a/librive_text.so: ALIGNED (2^16) ✅
-x86_64/librive_text.so: ALIGNED (2^16) ✅
-```
-
-**重要**: Riveを使用している場合は、NDK r28.1への更新が最も簡単な解決策です。
 
 ---
 
@@ -1167,7 +1121,6 @@ implementation 'androidx.core:core-ktx:1.16.0'
 
 ## 検証の重要性
 
-### 複数の検証手法を併用
 ```bash
 # 1. スクリプトでの確認
 ./check_elf_alignment.sh app-release.apk
