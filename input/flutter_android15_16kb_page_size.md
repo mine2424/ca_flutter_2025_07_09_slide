@@ -356,7 +356,7 @@ paginate: true
 
 ---
 
-# 主要パッケージの対応状況 1/4
+# 主要パッケージの対応状況 1/3
 
 ## ✅ 完全対応済みパッケージ
 
@@ -385,7 +385,7 @@ paginate: true
 
 ---
 
-# 主要パッケージの対応状況 2/4
+# 主要パッケージの対応状況 2/3
 
 ## ✅ 基本パッケージ（対応済み）
 
@@ -466,26 +466,11 @@ paginate: true
 
 ---
 
-# 主要パッケージの対応状況 3/4
+# 主要パッケージの対応状況 3/3
 
 ## ⚠️ 設定が必要なパッケージ
 
 <div class="package-list">
-<div class="package-item warning">
-<h3>🔔 flutter_local_notifications</h3>
-<p>ローカル通知機能</p>
-<p><strong>問題:</strong> Desugar依存によりJava 11制限</p>
-<div class="solution-box">
-<h4>解決方法:</h4>
-<pre><code>android {
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_11
-    targetCompatibility JavaVersion.VERSION_11
-  }
-}</code></pre>
-</div>
-</div>
-
 <div class="package-item warning">
 <h3>🎨 Rive Flutter</h3>
 <p>アニメーションライブラリ</p>
@@ -498,91 +483,14 @@ paginate: true
 <p class="note">※ NDK更新だけで自動的に16KB対応されます</p>
 </div>
 </div>
+
+<div class="package-item warning">
+<h3>📸 image_picker</h3>
+<p>画像選択・カメラ機能</p>
+<p><strong>注意:</strong> ネイティブコード使用のため確認必要</p>
+<p><strong>対応:</strong> 最新版（v1.0.5以降）へのアップデート推奨</p>
 </div>
-
----
-
-# 主要パッケージの対応状況 4/4
-
-## ⚠️ 注意が必要なパッケージ
-
-<div class="warning-packages">
-<h3>jcenter依存の警告があるパッケージ</h3>
-<ul>
-<li><strong>memory_info</strong> - メモリ情報取得</li>
-<li><strong>update_available</strong> - アップデート確認</li>
-</ul>
-<p class="note">※ 動作に影響はないがGradle警告が表示される</p>
 </div>
-
-<div class="check-method">
-<h3>🔍 パッケージの対応確認方法</h3>
-<ol>
-<li>APKをビルド: <code>flutter build apk --release</code></li>
-<li>チェックスクリプトで確認: <code>./check_elf_alignment.sh app-release.apk</code></li>
-<li>UNALIGNEDのライブラリを特定</li>
-<li>該当パッケージのGitHub Issueを確認</li>
-</ol>
-</div>
-
-<style scoped>
-.warning-packages {
-  background: #fff3cd;
-  border: 1px solid #ffeaa7;
-  padding: 15px 20px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-}
-
-.warning-packages h3 {
-  font-size: 18px;
-  margin: 0 0 10px 0;
-}
-
-.warning-packages ul {
-  margin: 10px 0;
-  padding-left: 25px;
-}
-
-.warning-packages li {
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-.check-method {
-  background: #e3f2fd;
-  border: 1px solid #90caf9;
-  padding: 15px 20px;
-  border-radius: 8px;
-}
-
-.check-method h3 {
-  font-size: 18px;
-  margin: 0 0 10px 0;
-}
-
-.check-method ol {
-  margin: 10px 0;
-  padding-left: 25px;
-}
-
-.check-method li {
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 5px;
-}
-
-.check-method code {
-  font-size: 13px;
-  padding: 2px 6px;
-}
-
-.note {
-  font-size: 13px;
-  color: #856404;
-  margin-top: 8px;
-}
-</style>
 
 ---
 
