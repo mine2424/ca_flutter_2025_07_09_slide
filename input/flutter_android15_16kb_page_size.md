@@ -9,35 +9,138 @@ paginate: true
 # Android 16KBページサイズ対応を
 # はじめからていねいに
 
-### Flutter × Android 15
+## CA.Flutter
 2025年7月9日
 
 ---
 
 # 自己紹介
 
-<div class="columns-2">
-<div>
+<div class="profile-container">
+  <div class="profile-header">
+    <img src="./images/profile.png" alt="Profile" class="profile-image">
+    <div class="profile-name">
+      <h2>西峰 綾汰</h2>
+      <p>にしみね りょうた</p>
+      <div class="profile-company">
+        <span class="company-logo">🏢</span>
+        <span>CyberAgent / SGEマンガ事業部 / 2024年入社</span>
+      </div>
+      <div class="profile-company">
+        <span class="company-logo">📱</span>
+        <span>ジャンプTOON という縦型漫画アプリを開発</span>
+      </div>
+    </div>
+  </div>
 
-## 西峰 綾汰
-### にしみね りょうた
-
-**所属**
-- CyberAgent
-- SGEマンガ事業部
-- 2024年入社
-
+  <div class="profile-interests">
+    <h3>🎯 趣味・興味</h3>
+    <ul>
+      <li><span class="interest-icon">🏎️</span> <strong>F1</strong> - Mercedes / Redbull</li>
+      <li><span class="interest-icon">♠️</span> <strong>ポーカー</strong> - 🇲🇴 / 🇰🇷 / 🇻🇳 / 🇰🇭 / 🇭🇰</li>
+      <li><span class="interest-icon">🎸</span> <strong>フジロック</strong> - 今年参戦します！
+      </li>
+    </ul>
+  </div>
 </div>
-<div>
 
-## 趣味・興味
-- 🏎️ **F1**
-- ♠️ **ポーカー**
-- 🎸 **フジロック**
-  今年参戦します！
+<style scoped>
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 10px;
+}
 
-</div>
-</div>
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.profile-name h2 {
+  font-size: 32px;
+  margin: 0 0 5px 0;
+  color: var(--primary-color);
+}
+
+.profile-name p {
+  font-size: 18px;
+  color: #666;
+  margin: 0 0 15px 0;
+}
+
+.profile-company {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.company-logo {
+  font-size: 20px;
+}
+
+.profile-interests {
+  flex: 1;
+  background-color: #f8f8f8;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.profile-interests h3 {
+  font-size: 22px;
+  margin: 0 0 20px 0;
+  color: var(--primary-color);
+}
+
+.profile-interests ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.profile-interests li {
+  font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: baseline;
+}
+
+.interest-icon {
+  font-size: 24px;
+  margin-right: 12px;
+  display: inline-block;
+  width: 32px;
+}
+
+.profile-interests strong {
+  color: var(--primary-color);
+  margin-right: 8px;
+}
+
+.interest-note {
+  display: block;
+  font-size: 16px;
+  color: #666;
+  margin-left: 44px;
+  margin-top: 4px;
+  font-style: italic;
+}
+</style>
 
 ---
 
@@ -48,7 +151,6 @@ paginate: true
 1. **なぜ必要？** - パフォーマンス向上の仕組み
 2. **何が起きる？** - Flutterアプリへの影響
 3. **どう対応する？** - 具体的な導入手順
-4. **デモで確認** - build.gradleとネイティブライブラリの設定
 
 ### 今日のゴール
 **明日から16KB対応を始められる状態に！**
@@ -219,25 +321,6 @@ paginate: true
 
 ---
 
-# よくあるエラー
-
-## こんなエラーに遭遇します
-
-```
-Failure [INSTALL_FAILED_INVALID_APK:
-Failed to extract native libraries, res=-2]
-```
-
-## 原因は？
-
-**ネイティブライブラリ（.so）のアライメント不良**
-
-- Flutterアプリには多くの.soファイルが含まれる
-- これらが4KB前提でビルドされている
-- 16KB環境では動作しない！
-
----
-
 # ネイティブライブラリ（.so）とは？
 
 ## Flutterアプリの構成要素
@@ -273,34 +356,233 @@ Failed to extract native libraries, res=-2]
 
 ---
 
-# 影響を受けるパッケージ
+# 主要パッケージの対応状況 1/4
 
-<div class="strategy-grid">
-<div class="strategy-section">
-<h3>✅ Rive</h3>
+## ✅ 完全対応済みパッケージ
+
+<div class="package-list">
+<div class="package-item success">
+<h3>🔥 Firebase全般</h3>
+<p>Analytics, Crashlytics, Messaging等</p>
+<p><strong>対応状況:</strong> 全て対応済み</p>
+<p><strong>追加作業:</strong> 不要</p>
+</div>
+
+<div class="package-item success">
+<h3>📊 datadog_flutter</h3>
+<p>監視・パフォーマンス分析</p>
+<p><strong>対応バージョン:</strong> v2.11.0以降</p>
+<p><strong>追加作業:</strong> バージョン更新のみ</p>
+</div>
+
+<div class="package-item success">
+<h3>📍 geolocator</h3>
+<p>位置情報取得</p>
+<p><strong>対応状況:</strong> 最新版で対応済み</p>
+<p><strong>追加作業:</strong> 不要</p>
+</div>
+</div>
+
+---
+
+# 主要パッケージの対応状況 2/4
+
+## ✅ 基本パッケージ（対応済み）
+
+<div class="package-grid">
+<div class="package-card">
+<h4>shared_preferences</h4>
+<p>ローカルストレージ</p>
+<span class="status-ok">✓ 対応済み</span>
+</div>
+
+<div class="package-card">
+<h4>sqflite</h4>
+<p>SQLiteデータベース</p>
+<span class="status-ok">✓ 対応済み</span>
+</div>
+
+<div class="package-card">
+<h4>path_provider</h4>
+<p>ファイルパス取得</p>
+<span class="status-ok">✓ 対応済み</span>
+</div>
+
+<div class="package-card">
+<h4>url_launcher</h4>
+<p>URL起動</p>
+<span class="status-ok">✓ 対応済み</span>
+</div>
+
+<div class="package-card">
+<h4>connectivity_plus</h4>
+<p>ネットワーク状態</p>
+<span class="status-ok">✓ 対応済み</span>
+</div>
+
+<div class="package-card">
+<h4>device_info_plus</h4>
+<p>デバイス情報</p>
+<span class="status-ok">✓ 対応済み</span>
+</div>
+</div>
+
+<style scoped>
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.package-card {
+  background: #f8f8f8;
+  padding: 10px;
+  border-radius: 6px;
+  border-left: 3px solid var(--success-color);
+}
+
+.package-card h4 {
+  margin: 0 0 3px 0;
+  font-size: 15px;
+  color: #333;
+}
+
+.package-card p {
+  margin: 0 0 5px 0;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.3;
+}
+
+.status-ok {
+  color: var(--success-color);
+  font-weight: bold;
+  font-size: 12px;
+}
+</style>
+
+---
+
+# 主要パッケージの対応状況 3/4
+
+## ⚠️ 設定が必要なパッケージ
+
+<div class="package-list">
+<div class="package-item warning">
+<h3>🔔 flutter_local_notifications</h3>
+<p>ローカル通知機能</p>
+<p><strong>問題:</strong> Desugar依存によりJava 11制限</p>
+<div class="solution-box">
+<h4>解決方法:</h4>
+<pre><code>android {
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_11
+    targetCompatibility JavaVersion.VERSION_11
+  }
+}</code></pre>
+</div>
+</div>
+
+<div class="package-item warning">
+<h3>🎨 Rive Flutter</h3>
 <p>アニメーションライブラリ</p>
-<p>NDK r28.1で自動対応</p>
-<span class="badge success">解決済</span>
-</div>
-<div class="strategy-section">
-<h3>⚠️ local_notifications</h3>
-<p>通知機能</p>
-<p>Desugar制約（Java 11）</p>
-<span class="badge warning">要設定</span>
-</div>
-<div class="strategy-section">
-<h3>✅ datadog_flutter</h3>
-<p>監視・分析</p>
-<p>v2.11.0+で対応済み</p>
-<span class="badge success">対応済</span>
-</div>
-<div class="strategy-section">
-<h3>⚠️ Gradle警告</h3>
-<p>memory_info, update_available</p>
-<p>jcenter使用の警告</p>
-<span class="badge warning">注意</span>
+<p><strong>重要:</strong> NDK r28.1への更新が必須</p>
+<div class="solution-box">
+<h4>解決方法:</h4>
+<pre><code>android {
+  ndkVersion "28.1.13356709"
+}</code></pre>
+<p class="note">※ NDK更新だけで自動的に16KB対応されます</p>
 </div>
 </div>
+</div>
+
+---
+
+# 主要パッケージの対応状況 4/4
+
+## ⚠️ 注意が必要なパッケージ
+
+<div class="warning-packages">
+<h3>jcenter依存の警告があるパッケージ</h3>
+<ul>
+<li><strong>memory_info</strong> - メモリ情報取得</li>
+<li><strong>update_available</strong> - アップデート確認</li>
+</ul>
+<p class="note">※ 動作に影響はないがGradle警告が表示される</p>
+</div>
+
+<div class="check-method">
+<h3>🔍 パッケージの対応確認方法</h3>
+<ol>
+<li>APKをビルド: <code>flutter build apk --release</code></li>
+<li>チェックスクリプトで確認: <code>./check_elf_alignment.sh app-release.apk</code></li>
+<li>UNALIGNEDのライブラリを特定</li>
+<li>該当パッケージのGitHub Issueを確認</li>
+</ol>
+</div>
+
+<style scoped>
+.warning-packages {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.warning-packages h3 {
+  font-size: 18px;
+  margin: 0 0 10px 0;
+}
+
+.warning-packages ul {
+  margin: 10px 0;
+  padding-left: 25px;
+}
+
+.warning-packages li {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.check-method {
+  background: #e3f2fd;
+  border: 1px solid #90caf9;
+  padding: 15px 20px;
+  border-radius: 8px;
+}
+
+.check-method h3 {
+  font-size: 18px;
+  margin: 0 0 10px 0;
+}
+
+.check-method ol {
+  margin: 10px 0;
+  padding-left: 25px;
+}
+
+.check-method li {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 5px;
+}
+
+.check-method code {
+  font-size: 13px;
+  padding: 2px 6px;
+}
+
+.note {
+  font-size: 13px;
+  color: #856404;
+  margin-top: 8px;
+}
+</style>
 
 ---
 
@@ -344,7 +626,7 @@ Android 16では16KBページサイズ互換モードが追加されます。
 
 # STEP1: 現状を確認する
 
-## 1. APKをビルド
+## APKをビルド
 
 ```bash
 flutter build apk --release
@@ -354,9 +636,9 @@ Flutterアプリケーションのリリース版APKをビルドします。
 
 ---
 
-# STEP1: 現状を確認する
+# STEP2: 現状を確認する
 
-## 2. チェックスクリプトをダウンロード
+## チェックスクリプトをダウンロード
 
 ```bash
 curl -O https://android.googlesource.com/\
@@ -370,9 +652,9 @@ Googleが提供するアライメントチェック用スクリプトを取得�
 
 ---
 
-# STEP1: 現状を確認する
+# STEP3: 現状を確認する
 
-## 3. APKのアライメントをチェック
+## APKのアライメントをチェック
 
 ```bash
 ./check_elf_alignment.sh /build/app/outputs/flutter-apk/app-release.apk
@@ -382,9 +664,9 @@ Googleが提供するアライメントチェック用スクリプトを取得�
 
 ---
 
-# STEP1: 現状を確認する
+# STEP4: 現状を確認する
 
-## 4. 結果の見方
+## 結果の見方
 
 ```
 arm64-v8a/libflutter.so: ALIGNED (2^16)    # OK!
@@ -604,128 +886,6 @@ Android Gradle Plugin (AGP) 8.6.0以上が必要です。
 
 <!-- _class: section -->
 
-# 🎬 実際にやってみよう
-## デモンストレーション
-
----
-
-# デモ: APKのチェック
-
-## 1. 既存APKの状態確認
-
-```bash
-# APKをビルド
-$ flutter build apk --release
-✓ Built build/app/outputs/flutter-apk/app-release.apk
-
-# チェックスクリプト実行
-$ ./check_elf_alignment.sh app-release.apk
-
-Checking app-release.apk...
-arm64-v8a/libflutter.so: ALIGNED (2^14) ⚠️
-arm64-v8a/libapp.so: ALIGNED (2^14) ⚠️
-arm64-v8a/librive_text.so: UNALIGNED ❌
-x86_64/libflutter.so: ALIGNED (2^14) ⚠️
-x86_64/libapp.so: ALIGNED (2^14) ⚠️
-armeabi-v7a/libflutter.so: UNALIGNED (対応不要)
-```
-
-**結果**: arm64-v8aとx86_64の16KB対応が必要！
-
----
-
-# デモ: build.gradle修正 1/3
-
-## Before - 現在の設定
-
-```gradle
-android {
-    compileSdk 34
-
-    defaultConfig {
-        targetSdk 34
-    }
-}
-```
-
-Android 14（API 34）をターゲットにした従来の設定です。
-
----
-
-# デモ: build.gradle修正 2/3
-
-## After - NDK r27の場合
-
-```gradle
-android {
-    compileSdk 35
-    ndkVersion "27.2.12479018"
-
-    defaultConfig {
-        targetSdk 35
-
-        externalNativeBuild {
-            cmake {
-                arguments += [
-                    "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
-                ]
-            }
-        }
-    }
-}
-```
-
-NDK r27では手動でCMake引数の設定が必要です。
-
----
-
-# デモ: build.gradle修正 3/3
-
-## After - NDK r28の場合（推奨）
-
-```gradle
-android {
-    compileSdk 35
-    ndkVersion "28.1.13356709"  // 追加設定不要！
-
-    defaultConfig {
-        targetSdk 35
-    }
-}
-```
-
-NDK r28.1以降では自動的に16KB対応されるため、追加設定は不要です。
-
----
-
-# デモ: 再ビルドと確認
-
-## 3. クリーンビルドと検証
-
-```bash
-# クリーンビルド
-$ flutter clean
-$ flutter pub get
-$ flutter build apk --release
-
-# 再度チェック
-$ ./check_elf_alignment.sh app-release.apk
-
-Checking app-release.apk...
-arm64-v8a/libflutter.so: ALIGNED (2^16) ✅
-arm64-v8a/libapp.so: ALIGNED (2^16) ✅
-arm64-v8a/librive_text.so: UNALIGNED ❌  # プラグイン側の対応待ち
-x86_64/libflutter.so: ALIGNED (2^16) ✅
-x86_64/libapp.so: ALIGNED (2^16) ✅
-armeabi-v7a/libflutter.so: UNALIGNED (対応不要)
-```
-
-**重要**: arm64-v8aとx86_64のFlutter本体は対応完了！
-
----
-
-<!-- _class: section -->
-
 # 🧪 テスト環境の構築
 ## 16KBページサイズでの動作確認
 
@@ -889,255 +1049,41 @@ Android StudioでNDKをインストール：
 
 ---
 
-# 主要パッケージの対応状況 1/3
-
-## Rive - アニメーションライブラリ
-
-### ✅ 解決方法
-NDK r28.1に更新するだけで自動対応
-
-```gradle
-android {
-    ndkVersion "28.1.13356709"
-}
-```
-
-### 参照
-- [Rive Issue #479](https://github.com/rive-app/rive-flutter/issues/479)
-
----
-
-# 主要パッケージの対応状況 2/3
-
-## flutter_local_notifications - 通知機能
-
-### ⚠️ 問題点
-- Desugar依存によりJava 11に制限
-- 最新のJava機能が使用不可
-
-### 対応方法
-```gradle
-android {
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
-    }
-}
-```
-
----
-
-# 主要パッケージの対応状況 3/3
-
-## その他の注意が必要なパッケージ
+# 本日のまとめ
 
 <div class="columns-2">
 <div>
 
-### ⚠️ jcenter依存
-- **memory_info**
-- **update_available**
+### 📅 重要な日付
+- **2025年8月31日**
+  - API 35が必須に
+- **2025年11月1日**
+  - 16KB対応の期限
 
-Gradle警告が出るが動作に影響なし
-
-</div>
-<div>
-
-### ✅ 対応済み
-- **datadog_flutter** v2.11.0+
-- **Firebase** 全般
-- **shared_preferences**
-- **sqflite**
-
-</div>
-</div>
-
-### 💡 対応のコツ
-1. まずNDK r28.1に更新
-2. クリーンビルド実行
-3. それでも問題がある場合はIssueを確認
-
----
-
-# Riveライブラリの16KB対応
-
-## 🎉 朗報：NDK r28で解決！
-
-### 解決方法（2025年1月確認済み）
-
-**NDK r28.1以降を使用するだけで自動的に対応されます**
-
-```gradle
-android {
-    ndkVersion "28.1.13356709"  // これだけでOK！
-}
-```
-
-### 参照
-- [Rive Flutter Issue #479](https://github.com/rive-app/rive-flutter/issues/479#issuecomment-2962056705)
-
-
----
-
-<!-- _class: section -->
-
-# 📋 まとめ
-## 今日から始める16KB対応
-
----
-
-# 対応チェックリスト 1/3
-
-## 現状確認
-
-### APKチェック
-```bash
-./check_elf_alignment.sh app-release.apk
-```
-
-### プラグイン対応状況
-- Riveライブラリのステータス確認
-- ネイティブライブラリを含むプラグインのリストアップ
-
----
-
-# 対応チェックリスト 2/3
-
-## 設定変更
-
-### build.gradleの修正
-```gradle
-android {
-    compileSdk 35
-    targetSdk 35
-    ndkVersion "28.1.13356709"
-}
-```
-
-### 依存関係
-```gradle
-implementation 'androidx.core:core-ktx:1.16.0'
-```
-
----
-
-# 対応チェックリスト 3/3
-
-## テストと確認
-
-### 動作確認
-- 16KBエミュレータまたはPixel 8以降で確認
-- アプリの起動と基本動作テスト
-
-### 最終確認
-```bash
-./check_elf_alignment.sh app-release.apk
-# arm64-v8aとx86_64がALIGNED (2^16)になること
-```
-
----
-
-# なぜ今から準備が必要か
-
-<div class="columns-2">
-<div>
-
-## 2025年11月まで「まだ時間がある」？
-
-### ❌ 実はそうでもない理由
-
-**1. プラグインの対応待ち時間**
-- 人気プラグインほど対応に時間がかかる
-- 代替ライブラリの検討・実装期間が必要
-
-**2. 段階的なテスト期間**
-- 社内テスト → ベータ版 → 本番リリース
-- 各段階で問題が見つかる可能性
+### 🛠️ 対応方法
+- **NDK r28.1**を使用（最も簡単）
+- **targetSdk 35**に更新
+- **androidx.core 1.16.0**以上
 
 </div>
 <div>
 
-## 必要な準備期間の目安
-
-<div class="metric-card">
-<div class="metric-number">3-4<small>ヶ月</small></div>
-<p>プラグイン対応待ち</p>
-</div>
-
-<div class="metric-card">
-<div class="metric-number">2-3<small>ヶ月</small></div>
-<p>実装・テスト期間</p>
-</div>
-
-**3. 予期せぬ問題への対処**
-- ネイティブコードの修正
-- パフォーマンスチューニング
-- ユーザーフィードバック対応
-
-</div>
-</div>
-
-### 💡 早めの対応で余裕を持った移行を！
-
----
-
-# 実装時の注意点 1/3
-
-## 段階的な対応が必要
-
-### 実際のPRから学ぶ
-- **PR #4049**: Android 15基本対応
-  - NDK r27.2.12479018を使用
-  - 基本的なSDK/AGP更新
-
-- **PR #4198**: 16KB完全対応
-  - NDK r28.1.13356709へ更新
-  - Riveライブラリ問題解決
-
-**ポイント**: プラグインの対応状況により複数回の更新が必要
-
----
-
-# 実装時の注意点 2/3
-
-## 技術的な制約
-
-### Desugar制約
-- flutter_local_notificationsの制約でJava 11に制限
-- 最新のJava機能が使用不可
-
-### Gradle警告
-- memory_infoがjcenter使用
-- update_availableがjcenter使用
-- 将来的な移行が必要
-
-### buildDir非推奨
-- 影響範囲が大きいため移行見送り
-- 次回の大規模更新で対応予定
-
----
-
-# 実装時の注意点 3/3
-
-## 検証の重要性
-
+### ✅ 確認方法
 ```bash
-# 1. スクリプトでの確認
-./check_elf_alignment.sh app-release.apk
-
-# 2. Android Studioでの確認
-# Build > Analyze APK
-
-# 3. 実機での動作確認
-# 16KBエミュレータでのテスト
+./check_elf_alignment.sh \
+  app-release.apk
 ```
 
-### 検証ポイント
-- arm64-v8aとx86_64のライブラリがALIGNED
-- アプリの起動と基本動作
-- 16KBエミュレータまたは実機での動作確認
+### 🎯 ゴール
+- arm64-v8aがALIGNED (2^16)
+- x86_64がALIGNED (2^16)
+- エミュレータ/実機で動作確認
+
+</div>
+</div>
 
 ---
+
 
 # 参考リソース
 
@@ -1160,7 +1106,7 @@ implementation 'androidx.core:core-ktx:1.16.0'
 
 # ご清聴ありがとうございました
 
-### みんなで Android 16KB 対応を乗り越えましょう！
+## みんなで Android 16KB 対応を乗り越えましょう！
 
 Twitter: @nihon_kaizou
 GitHub: @mine2424
