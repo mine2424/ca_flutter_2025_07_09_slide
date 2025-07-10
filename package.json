@@ -14,7 +14,7 @@
     "validate": "node scripts/validate-slides.js"
   },
   "devDependencies": {
-    "@marp-team/marp-cli": "^3.2.0"
+    "@marp-team/marp-cli": "^4.0.0"
   },
   "marp": {
     "themeSet": "./themes",
